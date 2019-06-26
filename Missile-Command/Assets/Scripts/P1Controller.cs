@@ -10,6 +10,7 @@ public class P1Controller : MonoBehaviour
     private bool mouseClicked;
     public GameObject missileDestroy;
 
+    public int missileAmmo = 20;
     void Start()
     {
         
@@ -30,21 +31,30 @@ public class P1Controller : MonoBehaviour
     
     void FireMissile()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (missileAmmo > 0)
         {
-            Rigidbody missileInstance;
-            missileInstance = Instantiate(missilePrefab, cannonTop.position, cannonTop.rotation) as Rigidbody;
-            missileInstance.AddForce(cannonTop.forward * 3000);
+            if (Input.GetMouseButtonDown(0))
+            {
+
+                Rigidbody missileInstance;
+                missileInstance = Instantiate(missilePrefab, cannonTop.position, cannonTop.rotation) as Rigidbody;
+                missileInstance.AddForce(cannonTop.forward * 3000);
+
+                missileAmmo--;
+            }
+            if (Input.GetMouseButtonDown(0) && mouseClicked == false)
+            {
+                //Instantiate(missileDestroy);
+                mouseClicked = true;
+                mousePos = Input.mousePosition;
+            }
+            if (Input.GetMouseButtonUp(0) && mouseClicked == true)
+            {
+                mouseClicked = false;
+            }
         }
-        if (Input.GetMouseButtonDown(0) && mouseClicked == false)
-        {
-            Instantiate(missileDestroy);
-            mouseClicked = true;
-            mousePos = Input.mousePosition;
-        }
-        if (Input.GetMouseButtonUp(0) && mouseClicked == true)
-        {
-            mouseClicked = false;
-        }
+        else
+            return;
+     
     }
 }
