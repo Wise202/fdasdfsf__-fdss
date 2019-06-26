@@ -5,20 +5,35 @@ using UnityEngine;
 public class PlayerMissileClicker : MonoBehaviour
 {
     public GameObject missileVector;
-    public GameObject player;
     Vector3 missilePos;
-    Vector3 playerPos;
-    Vector3 missileTarget;
     public LayerMask hitLayer;
+
+    public Transform middlePlayer;
+    public Transform leftPlayer;
+    public Transform rightPlayer;
+
+    Vector3 middlePlayerPos;
+    Vector3 leftPlayerPos;
+    Vector3 rightPlayerPos;
+
+    public bool middlePlayerFire = false;
+    public bool leftPlayerFire = false;
+    public bool rightPlayerFire = false;
     // Start is called before the first frame update
     void Start()
     {
-        
+        middlePlayerPos = middlePlayer.transform.position;
+        leftPlayerPos = leftPlayer.transform.position;
+        rightPlayerPos = rightPlayer.transform.position;
+
+
     }
 
     // Update is called once per frame
     void Update()
     {
+        
+
         if (Input.GetButtonDown("Fire1"))
         {
  
@@ -26,8 +41,41 @@ public class PlayerMissileClicker : MonoBehaviour
             RaycastHit hit;
             if(Physics.Raycast(vectorRay, out hit, hitLayer.value))
             {
+                Debug.Log("Centre Player Distance is: " + Vector3.Distance(missilePos, middlePlayerPos));
+                Debug.Log("Left Player Distance is: " + Vector3.Distance(missilePos, leftPlayerPos));
+                Debug.Log("Right Player Distance is: " + Vector3.Distance(missilePos, rightPlayerPos));
+
                 missilePos = hit.point;
-                Instantiate(missileVector, missilePos, Quaternion.identity);
+                if (Vector3.Distance(missilePos, middlePlayerPos) < (Vector3.Distance(missilePos, leftPlayerPos)*10 + Vector3.Distance(missilePos, rightPlayerPos)*10))
+                {
+
+                    leftPlayerFire = false;
+                    rightPlayerFire = false;
+                    middlePlayerFire = true;
+                    Instantiate(missileVector, missilePos, Quaternion.identity);
+                }
+                else
+                    return;
+                if (Vector3.Distance(missilePos, leftPlayerPos) < Vector3.Distance(missilePos, middlePlayerPos) + (Vector3.Distance(missilePos, rightPlayerPos)))
+                {
+
+                    middlePlayerFire = false;
+                    rightPlayerFire = false;
+                    leftPlayerFire = true;
+                    Instantiate(missileVector, missilePos, Quaternion.identity);
+                }
+                else
+                    return;
+                if (Vector3.Distance(missilePos, rightPlayerPos) < Vector3.Distance(missilePos, middlePlayerPos) + (Vector3.Distance(missilePos, leftPlayerPos)))
+                {
+
+                    middlePlayerFire = false;
+                    leftPlayerFire = false;
+                    rightPlayerFire = true;
+                    Instantiate(missileVector, missilePos, Quaternion.identity);
+                }
+                else
+                    return;      
             }
 
             
