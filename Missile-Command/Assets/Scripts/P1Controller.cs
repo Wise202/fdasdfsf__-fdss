@@ -42,6 +42,8 @@ public class P1Controller : MonoBehaviour
     void Update()
     {
         LookAtMouse();
+
+        //Check which missile launcher is closest to the cursor to trigger the closest launcher to fire.
         if(playMissileClicker.middlePlayerFire == true && playMissileClicker.leftPlayerFire == false && playMissileClicker.rightPlayerFire == false)
         {
             FireMiddleMissile();

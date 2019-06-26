@@ -46,7 +46,7 @@ public class PlayerMissileClicker : MonoBehaviour
                 Debug.Log("Right Player Distance is: " + Vector3.Distance(missilePos, rightPlayerPos));
 
                 missilePos = hit.point;
-                if (Vector3.Distance(missilePos, middlePlayerPos) < (Vector3.Distance(missilePos, leftPlayerPos)*10 + Vector3.Distance(missilePos, rightPlayerPos)*10))
+                if (Vector3.Distance(missilePos, middlePlayerPos) < Vector3.Distance(missilePos, leftPlayerPos) && Vector3.Distance(missilePos, middlePlayerPos) < Vector3.Distance(missilePos, rightPlayerPos))
                 {
 
                     leftPlayerFire = false;
@@ -54,19 +54,17 @@ public class PlayerMissileClicker : MonoBehaviour
                     middlePlayerFire = true;
                     Instantiate(missileVector, missilePos, Quaternion.identity);
                 }
-                else
-                    return;
-                if (Vector3.Distance(missilePos, leftPlayerPos) < Vector3.Distance(missilePos, middlePlayerPos) + (Vector3.Distance(missilePos, rightPlayerPos)))
+                else if (Vector3.Distance(missilePos, leftPlayerPos) < Vector3.Distance(missilePos, middlePlayerPos) && Vector3.Distance(missilePos, leftPlayerPos) < Vector3.Distance(missilePos, rightPlayerPos))
                 {
+                    
 
                     middlePlayerFire = false;
                     rightPlayerFire = false;
                     leftPlayerFire = true;
                     Instantiate(missileVector, missilePos, Quaternion.identity);
                 }
-                else
-                    return;
-                if (Vector3.Distance(missilePos, rightPlayerPos) < Vector3.Distance(missilePos, middlePlayerPos) + (Vector3.Distance(missilePos, leftPlayerPos)))
+
+                else if (Vector3.Distance(missilePos, rightPlayerPos) < Vector3.Distance(missilePos, middlePlayerPos) && Vector3.Distance(missilePos, rightPlayerPos) < Vector3.Distance(missilePos, leftPlayerPos))
                 {
 
                     middlePlayerFire = false;
