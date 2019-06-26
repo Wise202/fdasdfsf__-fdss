@@ -32,8 +32,10 @@ public class PlayerMissileClicker : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
 
+        //Performs a ray cast to the world based on the mouse position. This creates a vector position which the missile targets, flying towards the target, where it detonates on impact.
+        //This lets the player target anywhere on the screen.
+        //Additionally, a series of distance checks are run to check which launcher is closest to the target vector, and thus the closest launcher fires.
         if (Input.GetButtonDown("Fire1"))
         {
  
@@ -79,13 +81,7 @@ public class PlayerMissileClicker : MonoBehaviour
             
             Debug.DrawRay(vectorRay.origin,vectorRay.direction * 100, Color.red);
 
-            
 
-           //missilePos = Camera.main.scr(Input.mousePosition);
-           //playerPos = player.transform.position;
-           //missileTarget = new Vector3(missilePos.x * 10, missilePos.y * 10, playerPos.z);
-
-            //Debug.Log(Camera.main.ScreenToViewportPoint(Input.mousePosition));
 
             
         }

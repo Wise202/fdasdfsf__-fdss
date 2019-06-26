@@ -10,7 +10,7 @@ public class P1Controller : MonoBehaviour
     public Transform leftCannonTop;
     public Transform rightCannonTop;
 
-
+    //public Rigidbody scatterMissile;
 
     public Vector3 mousePos;
 
@@ -79,6 +79,14 @@ public class P1Controller : MonoBehaviour
                 missileAmmo--;
                 playMissileClicker.middlePlayerFire = false;
             }
+            /*else if (Input.GetMouseButtonDown(1))
+            {
+                Rigidbody scattershotInstance;
+                scattershotInstance = Instantiate(scatterMissile, middleCannonTop.position, middleCannonTop.rotation) as Rigidbody;
+                //scatterMissile.MovePosition(middleCannonTop.transform.position + middleCannonTop.transform.forward * Time.deltaTime);
+                scatterMissile.AddForce(middleCannonTop.forward * 3000);
+
+            }*/
             if (Input.GetMouseButtonDown(0) && mouseClicked == false)
             {
                 //Instantiate(missileDestroy);
@@ -89,6 +97,7 @@ public class P1Controller : MonoBehaviour
             {
                 mouseClicked = false;
             }
+            
         }
         else
             return;

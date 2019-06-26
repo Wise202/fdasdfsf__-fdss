@@ -5,11 +5,7 @@ using UnityEngine;
 public class DestroyObject : MonoBehaviour
 {
     float deathTimer;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+
 
     // Update is called once per frame
     void Update()
@@ -19,7 +15,9 @@ public class DestroyObject : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
     }
+    //Upon hitting the vector, destroy itself and the vector.
     private void OnCollisionEnter(Collision col)
     {
         if (col.gameObject.tag == "Explosion_Point")
