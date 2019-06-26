@@ -14,7 +14,7 @@ public class DestroyObject : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        deathTimer++;
+        //deathTimer++;
         if(deathTimer >= 10f)
         {
             Destroy(gameObject);
@@ -25,7 +25,9 @@ public class DestroyObject : MonoBehaviour
         if (col.gameObject.tag == "Explosion_Point")
         {
             Debug.Log("Hey");
+            Destroy(col.gameObject);
             Destroy(gameObject);
+            
         }
 
 
