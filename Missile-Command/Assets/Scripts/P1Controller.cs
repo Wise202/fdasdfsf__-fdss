@@ -23,9 +23,9 @@ public class P1Controller : MonoBehaviour
            GameObject leftShooter;
            GameObject rightShooter;
 
-    PlayerMissileClicker playMissileClicker;
+           PlayerMissileClicker playMissileClicker;
 
-    public int missileAmmo = 20;
+           public int missileAmmo = 20;
 
 
     void Start()

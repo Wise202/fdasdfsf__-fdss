@@ -8,6 +8,8 @@ TagManager:
   - MiddlePlayer
   - LeftPlayer
   - RightPlayer
+  - Point1
+  - Point2
   layers:
   - Default
   - TransparentFX
