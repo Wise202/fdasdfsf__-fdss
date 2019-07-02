@@ -5,11 +5,20 @@ using UnityEngine;
 public class P1Controller : MonoBehaviour
 {
     public Rigidbody missilePrefab;
-
+    public GoldScript other;
+    public void BuyAmmo()
+    {
+        if (other.goldAmount > 50f)
+        {
+            other.goldAmount -= 50f;
+            missileAmmo += 3;
+        }
+    }
     public Transform middleCannonTop;
     public Transform leftCannonTop;
     public Transform rightCannonTop;
 
+   
     //public Rigidbody scatterMissile;
 
     public Vector3 mousePos;
@@ -161,4 +170,6 @@ public class P1Controller : MonoBehaviour
             return;
 
     }
+
+   
 }
