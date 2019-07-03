@@ -6,7 +6,12 @@ public class PlayerMissileClicker : MonoBehaviour
 {
     public GameObject missileVector;
     Vector3 missilePos;
+    Vector3 homingMissilePos;
+
+    Transform homingTarget;
+
     public LayerMask hitLayer;
+    public LayerMask homingLayer;
 
     public Transform middlePlayer;
     public Transform leftPlayer;
@@ -89,7 +94,40 @@ public class PlayerMissileClicker : MonoBehaviour
         {
             Ray homingRay = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit homingHit;
-            //if()
+            if(Physics.Raycast(homingRay, out homingHit, homingLayer.value))
+            {
+                homingMissilePos = homingHit.point;
+                homingTarget = homingHit.transform;
+                if (Vector3.Distance(homingMissilePos, middlePlayerPos) < Vector3.Distance(homingMissilePos, leftPlayerPos) && Vector3.Distance(homingMissilePos, middlePlayerPos) < Vector3.Distance(homingMissilePos, rightPlayerPos))
+                {
+
+                    leftPlayerFire = false;
+                    rightPlayerFire = false;
+                    middlePlayerFire = true;
+                    //Instantiate(missileVector, homingMissilePos, Quaternion.identity);
+                }
+                else if (Vector3.Distance(homingMissilePos, leftPlayerPos) < Vector3.Distance(homingMissilePos, middlePlayerPos) && Vector3.Distance(homingMissilePos, leftPlayerPos) < Vector3.Distance(homingMissilePos, rightPlayerPos))
+                {
+
+
+                    middlePlayerFire = false;
+                    rightPlayerFire = false;
+                    leftPlayerFire = true;
+                    //Instantiate(missileVector, homingMissilePos, Quaternion.identity);
+                }
+
+                else if (Vector3.Distance(homingMissilePos, rightPlayerPos) < Vector3.Distance(homingMissilePos, middlePlayerPos) && Vector3.Distance(homingMissilePos, rightPlayerPos) < Vector3.Distance(homingMissilePos, leftPlayerPos))
+                {
+
+                    middlePlayerFire = false;
+                    leftPlayerFire = false;
+                    rightPlayerFire = true;
+                    //Instantiate(missileVector, homingMissilePos, Quaternion.identity);
+                }
+                else
+                    return;
+
+            }
         }
     }
 }

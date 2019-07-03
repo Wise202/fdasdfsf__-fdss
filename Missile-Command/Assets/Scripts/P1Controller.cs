@@ -102,6 +102,10 @@ public class P1Controller : MonoBehaviour
                 playMissileClicker.middlePlayerFire = false;
 
             }
+            else if (Input.GetMouseButtonDown(2))
+            {
+
+            }
             if (Input.GetMouseButtonDown(0) || Input.GetMouseButtonDown(1) && mouseClicked == false)
             {
               
