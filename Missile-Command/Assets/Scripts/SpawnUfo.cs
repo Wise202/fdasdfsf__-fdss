@@ -2,23 +2,24 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UFOMovement : MonoBehaviour
+public class SpawnUfo : MonoBehaviour
 {
+    public GameObject uFo; 
     
-   
     // Start is called before the first frame update
     void Start()
     {
-       
+        SpawnUFO();
     }
 
     // Update is called once per frame
     void Update()
     {
-        transform.position = new Vector3(Mathf.PingPong(Time.time, 5), transform.position.y, transform.position.z);
+        
     }
 
-    
-
-
+    void SpawnUFO()
+    {
+        Instantiate(uFo, new Vector3(2, -0, -11), Quaternion.identity);
+    }
 }
