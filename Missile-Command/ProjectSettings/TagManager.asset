@@ -11,6 +11,8 @@ TagManager:
   - Point1
   - Point2
   - Ground
+  - Missile
+  - Explosion
   layers:
   - Default
   - TransparentFX
