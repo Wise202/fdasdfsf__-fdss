@@ -20,6 +20,6 @@ public class SpawnUfo : MonoBehaviour
 
     void SpawnUFO()
     {
-        Instantiate(uFo, new Vector3(2, -0, -11), Quaternion.identity);
+        Instantiate(uFo, new Vector3(-0, -0, -11), Quaternion.identity);
     }
 }
