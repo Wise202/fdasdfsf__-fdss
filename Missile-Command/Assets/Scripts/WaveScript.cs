@@ -26,11 +26,7 @@ public class WaveScript : MonoBehaviour
     public float enemySpawnCountDown;
     public float searchCountDown = 1f;
 
-    public RandomSpawn missilesSpawn1;
-    public RandomSpawn missilesSpawn2;
-    public RandomSpawn missilesSpawn3;
-
-    public RandomSpawn[] missileSpawn = new RandomSpawn[3];
+    public RandomSpawn[] missileSpawn = new RandomSpawn[24];
 
     // Start is called before the first frame update
     void Start()
@@ -112,16 +108,6 @@ public class WaveScript : MonoBehaviour
 
     void SpawnMissile()
     {
-        missileSpawn[Random.Range(0, 2)].waitSpawner();
-    }
-
-    void SpawnMissile2()
-    {
-        missilesSpawn2.waitSpawner();
-    }
-
-    void SpawnMissile3()
-    {
-        missilesSpawn3.waitSpawner();
+        missileSpawn[Random.Range(0, 23)].waitSpawner();
     }
 }

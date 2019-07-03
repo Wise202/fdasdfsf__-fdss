@@ -16,5 +16,10 @@ public class DestroyMissile1 : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
+        if (collision.collider.tag == "Base")
+        {
+            Destroy(gameObject);
+        }
     }
 }

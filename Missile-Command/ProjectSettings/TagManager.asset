@@ -16,6 +16,7 @@ TagManager:
   - ScatterLauncher
   - ScatterSpread
   - AIMissile
+  - Base
   layers:
   - Default
   - TransparentFX
