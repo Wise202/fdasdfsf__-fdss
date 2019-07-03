@@ -10,7 +10,7 @@ public class UFOStrafe : MonoBehaviour
     Transform point1Place;
     Transform point2Place;
 
-    Transform target;
+    public Transform target;
 
     float speed = 2f;
     // Start is called before the first frame update

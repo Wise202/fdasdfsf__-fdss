@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1954,7 +1954,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1195605882}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 20, y: 0, z: 6}
+  m_LocalPosition: {x: 20, y: 6.89, z: 6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -2125,6 +2125,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ufo spin
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 66ad5d40e2d57df43893b20e45c01d2e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -6057140222963153312, guid: 66ad5d40e2d57df43893b20e45c01d2e,
         type: 3}
@@ -2791,6 +2796,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a2e0ccaa1c9ae948a5b074693abe709, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  target: {fileID: 0}
 --- !u!135 &1658354261
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -2842,7 +2848,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1721356122}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -20, y: 0, z: 6}
+  m_LocalPosition: {x: -20, y: 6.89, z: 6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
