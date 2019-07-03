@@ -20,8 +20,11 @@ public class P1Controller : MonoBehaviour
     public Transform leftCannonTop;
     public Transform rightCannonTop;
 
+    public Transform midScatterLauncher;
+    public Transform leftScatterLauncher;
+    public Transform rightScatterLauncher;
    
-    //public Rigidbody scatterMissile;
+    public Rigidbody scatterMissile;
 
     public Vector3 mousePos;
 
@@ -47,7 +50,6 @@ public class P1Controller : MonoBehaviour
         leftShooter = GameObject.FindGameObjectWithTag("LeftPlayer");
         rightShooter = GameObject.FindGameObjectWithTag("RightPlayer");
 
-   
     }
 
     void Update()
@@ -91,21 +93,22 @@ public class P1Controller : MonoBehaviour
                 missileAmmo--;
                 playMissileClicker.middlePlayerFire = false;
             }
-            /*else if (Input.GetMouseButtonDown(1))
+            else if (Input.GetMouseButtonDown(1))
             {
                 Rigidbody scattershotInstance;
-                scattershotInstance = Instantiate(scatterMissile, middleCannonTop.position, middleCannonTop.rotation) as Rigidbody;
-                //scatterMissile.MovePosition(middleCannonTop.transform.position + middleCannonTop.transform.forward * Time.deltaTime);
-                scatterMissile.AddForce(middleCannonTop.forward * 3000);
+                scattershotInstance = Instantiate(scatterMissile, midScatterLauncher.position, midScatterLauncher.rotation) as Rigidbody;
+                scattershotInstance.AddForce(midScatterLauncher.forward * 3000);
 
-            }*/
-            if (Input.GetMouseButtonDown(0) && mouseClicked == false)
+                playMissileClicker.middlePlayerFire = false;
+
+            }
+            if (Input.GetMouseButtonDown(0) || Input.GetMouseButtonDown(1) && mouseClicked == false)
             {
-                //Instantiate(missileDestroy);
+              
                 mouseClicked = true;
                 mousePos = Input.mousePosition;
             }
-            if (Input.GetMouseButtonUp(0) && mouseClicked == true)
+            if (Input.GetMouseButtonUp(0) || Input.GetMouseButtonDown(1) && mouseClicked == true)
             {
                 mouseClicked = false;
             }
@@ -129,13 +132,22 @@ public class P1Controller : MonoBehaviour
                 missileAmmo--;
                 playMissileClicker.leftPlayerFire = false;
             }
-            if (Input.GetMouseButtonDown(0) && mouseClicked == false)
+            else if (Input.GetMouseButtonDown(1))
             {
-                //Instantiate(missileDestroy);
+                Rigidbody scattershotInstance;
+                scattershotInstance = Instantiate(scatterMissile, leftScatterLauncher.position, leftScatterLauncher.rotation) as Rigidbody;
+                scattershotInstance.AddForce(leftScatterLauncher.forward * 3000);
+
+                playMissileClicker.leftPlayerFire = false;
+
+            }
+            if (Input.GetMouseButtonDown(0) || Input.GetMouseButtonDown(1) && mouseClicked == false)
+            {
+                
                 mouseClicked = true;
                 mousePos = Input.mousePosition;
             }
-            if (Input.GetMouseButtonUp(0) && mouseClicked == true)
+            if (Input.GetMouseButtonUp(0) || Input.GetMouseButtonDown(1) && mouseClicked == true)
             {
                 mouseClicked = false;
             }
@@ -158,13 +170,21 @@ public class P1Controller : MonoBehaviour
                 missileAmmo--;
                 playMissileClicker.rightPlayerFire = false;
             }
-            if (Input.GetMouseButtonDown(0) && mouseClicked == false)
+            else if (Input.GetMouseButtonDown(1))
             {
-                //Instantiate(missileDestroy);
+                Rigidbody scattershotInstance;
+                scattershotInstance = Instantiate(scatterMissile, rightScatterLauncher.position, rightScatterLauncher.rotation) as Rigidbody;
+                scattershotInstance.AddForce(rightScatterLauncher.forward * 3000);
+
+                playMissileClicker.rightPlayerFire = false;
+            }
+            if (Input.GetMouseButtonDown(0) || Input.GetMouseButtonDown(1) && mouseClicked == false)
+            {
+                
                 mouseClicked = true;
                 mousePos = Input.mousePosition;
             }
-            if (Input.GetMouseButtonUp(0) && mouseClicked == true)
+            if (Input.GetMouseButtonUp(0) || Input.GetMouseButtonDown(1) && mouseClicked == true)
             {
                 mouseClicked = false;
             }

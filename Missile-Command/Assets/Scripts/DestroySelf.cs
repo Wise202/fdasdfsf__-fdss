@@ -5,12 +5,12 @@ using UnityEngine;
 public class DestroySelf : MonoBehaviour
 {
     public float deathTime;
-    // Start is called before the first frame update
+    public GameObject explosion;
+
     void Start()
     {
-        
+        //explosion = GameObject.FindGameObjectWithTag("Explosion");
     }
-
     // Update is called once per frame
     void Update()
     {
@@ -24,6 +24,8 @@ public class DestroySelf : MonoBehaviour
     {
         if(collision.gameObject.tag == "Missile")
         {
+            Instantiate(explosion, transform.position, transform.rotation);
+
             Destroy(gameObject);
         }
     }

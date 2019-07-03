@@ -11,6 +11,10 @@ TagManager:
   - Point1
   - Point2
   - Ground
+  - Missile
+  - Explosion
+  - ScatterLauncher
+  - ScatterSpread
   layers:
   - Default
   - TransparentFX
