@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GoldScript : MonoBehaviour
 {
@@ -9,7 +10,7 @@ public class GoldScript : MonoBehaviour
     public bool goldCount1 = false;
     public bool goldCount2 = false;
     public bool goldCount3 = false;
-   
+    public Text goldText;
    
     // Start is called before the first frame update
     void Start()
@@ -20,6 +21,7 @@ public class GoldScript : MonoBehaviour
     void Update()
     {
         ChangeGold();
+        goldText.text = "Gold: " + goldAmount.ToString("00");
         
     }
     void ChangeGold()

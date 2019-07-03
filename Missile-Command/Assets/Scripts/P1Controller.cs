@@ -1,11 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class P1Controller : MonoBehaviour
 {
     public Rigidbody missilePrefab;
     public GoldScript other;
+    public Text MissileText;
     public void BuyAmmo()
     {
         if (other.goldAmount > 50f)
@@ -50,6 +52,7 @@ public class P1Controller : MonoBehaviour
 
     void Update()
     {
+        MissileText.text = "Ammo: " + missileAmmo.ToString();
         LookAtMouse();
 
         //Check which missile launcher is closest to the cursor to trigger the closest launcher to fire.
