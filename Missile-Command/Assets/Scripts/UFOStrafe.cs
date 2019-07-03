@@ -12,7 +12,7 @@ public class UFOStrafe : MonoBehaviour
 
     public Transform target;
 
-    float speed = 2f;
+    float speed = 5f;
     // Start is called before the first frame update
     void Start()
     {
@@ -33,14 +33,15 @@ public class UFOStrafe : MonoBehaviour
         transform.position = Vector3.MoveTowards(transform.position, target.position, fly);
 
     }
+    //Upon reaching one checkpoint, switch back to the other so it strafes along the screen.
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Point1"))
+        if (other.gameObject.CompareTag("Point1"))
         {
             Debug.Log("Point1 booped");
             target = point2Place;
         }
-        else if (other.CompareTag("Point2"))
+        else if (other.gameObject.CompareTag("Point2"))
         {
             Debug.Log("Point2 booped");
             target = point1Place;

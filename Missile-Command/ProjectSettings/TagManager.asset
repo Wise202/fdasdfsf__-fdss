@@ -13,6 +13,8 @@ TagManager:
   - Ground
   - Missile
   - Explosion
+  - ScatterLauncher
+  - ScatterSpread
   layers:
   - Default
   - TransparentFX
