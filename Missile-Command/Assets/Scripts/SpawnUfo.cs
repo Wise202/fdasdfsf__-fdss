@@ -28,7 +28,12 @@ public class SpawnUfo : MonoBehaviour
         }
         else if (state == UFOState.Waiting)
         {
-            //step 2: check if the SpawnedUFO variable is empty, using a null check
+            //step 2: check if the spawnedUFO variable is empty, using a null check
+            if(spawnedUFO == null)
+            {
+                state = UFOState.Spawning;
+            }
+
 
             //step 3: if the spawnedUFO variable is empty, change the UFO state to spawning
         }
@@ -43,7 +48,7 @@ public class SpawnUfo : MonoBehaviour
         {
             
             //Step 1: assign the new ufo created below to the spawnedUFO variable
-            Instantiate(uFo, new Vector3(-0, -0, -11), Quaternion.identity);
+            spawnedUFO = Instantiate(uFo, new Vector3(-0, -0, -11), Quaternion.identity);
             Instantiationtimer = 5f;
             state = UFOState.Waiting;
 
