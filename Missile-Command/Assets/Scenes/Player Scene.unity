@@ -3031,6 +3031,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1938739606}
+  - component: {fileID: 1938739607}
   m_Layer: 0
   m_Name: AIEnemySpawnPoint
   m_TagString: Untagged
@@ -3055,6 +3056,29 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1938739607
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1938739605}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fae18be91ad2db04bbdd059430529966, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wavenumber: 0
+  enemySpawnDelay: 0
+  enemySpawnCountDown: 0
+  searchCountDown: 1
+  missilesSpawn1: {fileID: 869225363}
+  missilesSpawn2: {fileID: 543843382}
+  missilesSpawn3: {fileID: 2002881809}
+  missileSpawn:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!1 &1972900262
 GameObject:
   m_ObjectHideFlags: 0

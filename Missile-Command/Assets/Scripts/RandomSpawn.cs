@@ -32,7 +32,7 @@ public class RandomSpawn : MonoBehaviour
         spawnWait = Random.Range(spawnShortWait, spawnLongWait);
     }
 
-    IEnumerator waitSpawner()
+    public IEnumerator waitSpawner()
     {
         yield return new WaitForSeconds(startWait);
 

@@ -13,7 +13,6 @@ public class WaveScript : MonoBehaviour
     public class EnemyWave
     {
         public string name;
-        public Transform[] enemy;
         public int count;
         public float rate;
     }
@@ -22,22 +21,21 @@ public class WaveScript : MonoBehaviour
     private int nextWave = 0;
     public int wavenumber = 0;
 
-    public Transform[] enemySpawnPoint;
-
     //The time it will take for when the wave ends to the next wave.
     public float enemySpawnDelay;
     public float enemySpawnCountDown;
     public float searchCountDown = 1f;
 
+    public RandomSpawn missilesSpawn1;
+    public RandomSpawn missilesSpawn2;
+    public RandomSpawn missilesSpawn3;
+
+    public RandomSpawn[] missileSpawn = new RandomSpawn[3];
+
     // Start is called before the first frame update
     void Start()
     {
-        if (enemySpawnPoint.Length == 0)
-        {
-            Debug.LogError("No spawn points reference!!");
-
-            enemySpawnCountDown = enemySpawnDelay;
-        }
+        enemySpawnCountDown = enemySpawnDelay;
     }
 
     // Update is called once per frame
@@ -99,11 +97,11 @@ public class WaveScript : MonoBehaviour
         for (int i = 0; i < wave.count; i++)
         {
             EnemyWave missile = waves[i];
-            SpawnMissile(missile.enemy[Random.Range(0, missile.enemy.Length)]);
+            SpawnMissile();
             yield return new WaitForSeconds(1f / wave.rate);
-            SpawnMissile(missile.enemy[Random.Range(0, missile.enemy.Length)]);
+            SpawnMissile();
             yield return new WaitForSeconds(1.5f / wave.rate);
-            SpawnMissile(missile.enemy[Random.Range(0, missile.enemy.Length)]);
+            SpawnMissile();
             yield return new WaitForSeconds(2f / wave.rate);
         }
 
@@ -112,8 +110,18 @@ public class WaveScript : MonoBehaviour
         yield break;
     }
 
-    void SpawnMissile(Transform missile)
+    void SpawnMissile()
     {
+        missileSpawn[Random.Range(0, 2)].waitSpawner();
+    }
 
+    void SpawnMissile2()
+    {
+        missilesSpawn2.waitSpawner();
+    }
+
+    void SpawnMissile3()
+    {
+        missilesSpawn3.waitSpawner();
     }
 }
