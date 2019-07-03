@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class UFOMovement : MonoBehaviour
 {
-    
    
     // Start is called before the first frame update
     void Start()
@@ -15,7 +14,7 @@ public class UFOMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position = new Vector3(Mathf.PingPong(Time.time, 5), transform.position.y, transform.position.z);
+        transform.position = new Vector3(Mathf.PingPong(Time.time, 10), transform.position.y, transform.position.z);
     }
 
     
