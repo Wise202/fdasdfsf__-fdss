@@ -688,6 +688,9 @@ MonoBehaviour:
   hitLayer:
     serializedVersion: 2
     m_Bits: 256
+  homingLayer:
+    serializedVersion: 2
+    m_Bits: 512
   middlePlayer: {fileID: 1601655704}
   leftPlayer: {fileID: 894239600}
   rightPlayer: {fileID: 16840372}
