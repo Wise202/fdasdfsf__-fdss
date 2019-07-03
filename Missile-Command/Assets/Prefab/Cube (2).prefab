@@ -14,9 +14,9 @@ GameObject:
   - component: {fileID: 851532952670787415}
   - component: {fileID: -8305759098989735853}
   - component: {fileID: -8484316154279036560}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cube (2)
-  m_TagString: Untagged
+  m_TagString: AIMissile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

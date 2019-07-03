@@ -85,5 +85,11 @@ public class PlayerMissileClicker : MonoBehaviour
 
             
         }
+        else if(Input.GetButtonDown("Fire3"))
+        {
+            Ray homingRay = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit homingHit;
+            //if()
+        }
     }
 }
