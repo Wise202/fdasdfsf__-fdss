@@ -1,9 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+//github
 public class PlayerMissileClicker : MonoBehaviour
 {
+    public GameObject cH;
+    public Vector3 crosshair;
     public GameObject missileVector;
     Vector3 missilePos;
     Vector3 homingMissilePos;
@@ -37,14 +39,14 @@ public class PlayerMissileClicker : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        crosshair = cH.transform.position;
         //Performs a ray cast to the world based on the mouse position. This creates a vector position which the missile targets, flying towards the target, where it detonates on impact.
         //This lets the player target anywhere on the screen.
         //Additionally, a series of distance checks are run to check which launcher is closest to the target vector, and thus the closest launcher fires.
         if (Input.GetButtonDown("Fire1") || Input.GetButtonDown("Fire2"))
         {
  
-            Ray vectorRay = Camera.main.ScreenPointToRay(Input.mousePosition);
+            Ray vectorRay = Camera.main.ScreenPointToRay(crosshair);
             RaycastHit hit;
             if(Physics.Raycast(vectorRay, out hit, hitLayer.value))
             {
@@ -53,31 +55,31 @@ public class PlayerMissileClicker : MonoBehaviour
                // Debug.Log("Right Player Distance is: " + Vector3.Distance(missilePos, rightPlayerPos));
 
                 missilePos = hit.point;
-                if (Vector3.Distance(missilePos, middlePlayerPos) < Vector3.Distance(missilePos, leftPlayerPos) && Vector3.Distance(missilePos, middlePlayerPos) < Vector3.Distance(missilePos, rightPlayerPos))
+                if (Vector3.Distance(crosshair, middlePlayerPos) < Vector3.Distance(crosshair, leftPlayerPos) && Vector3.Distance(crosshair, middlePlayerPos) < Vector3.Distance(crosshair, rightPlayerPos))
                 {
 
                     leftPlayerFire = false;
                     rightPlayerFire = false;
                     middlePlayerFire = true;
-                    Instantiate(missileVector, missilePos, Quaternion.identity);
+                    Instantiate(missileVector, crosshair, Quaternion.identity);
                 }
-                else if (Vector3.Distance(missilePos, leftPlayerPos) < Vector3.Distance(missilePos, middlePlayerPos) && Vector3.Distance(missilePos, leftPlayerPos) < Vector3.Distance(missilePos, rightPlayerPos))
+                else if (Vector3.Distance(crosshair, leftPlayerPos) < Vector3.Distance(crosshair, middlePlayerPos) && Vector3.Distance(crosshair, leftPlayerPos) < Vector3.Distance(crosshair, rightPlayerPos))
                 {
                     
 
                     middlePlayerFire = false;
                     rightPlayerFire = false;
                     leftPlayerFire = true;
-                    Instantiate(missileVector, missilePos, Quaternion.identity);
+                    Instantiate(missileVector, crosshair, Quaternion.identity);
                 }
 
-                else if (Vector3.Distance(missilePos, rightPlayerPos) < Vector3.Distance(missilePos, middlePlayerPos) && Vector3.Distance(missilePos, rightPlayerPos) < Vector3.Distance(missilePos, leftPlayerPos))
+                else if (Vector3.Distance(crosshair, rightPlayerPos) < Vector3.Distance(crosshair, middlePlayerPos) && Vector3.Distance(crosshair, rightPlayerPos) < Vector3.Distance(crosshair, leftPlayerPos))
                 {
 
                     middlePlayerFire = false;
                     leftPlayerFire = false;
                     rightPlayerFire = true;
-                    Instantiate(missileVector, missilePos, Quaternion.identity);
+                    Instantiate(missileVector, crosshair, Quaternion.identity);
                 }
                 else
                     return;      
@@ -92,37 +94,37 @@ public class PlayerMissileClicker : MonoBehaviour
         }
         else if(Input.GetButtonDown("Fire3"))
         {
-            Ray homingRay = Camera.main.ScreenPointToRay(Input.mousePosition);
+            Ray homingRay = Camera.main.ScreenPointToRay(crosshair);
             RaycastHit homingHit;
             if(Physics.Raycast(homingRay, out homingHit, homingLayer.value))
             {
                 homingMissilePos = homingHit.point;
                 homingTarget = homingHit.transform;
-                if (Vector3.Distance(homingMissilePos, middlePlayerPos) < Vector3.Distance(homingMissilePos, leftPlayerPos) && Vector3.Distance(homingMissilePos, middlePlayerPos) < Vector3.Distance(homingMissilePos, rightPlayerPos))
+                if (Vector3.Distance(crosshair, middlePlayerPos) < Vector3.Distance(crosshair, leftPlayerPos) && Vector3.Distance(crosshair, middlePlayerPos) < Vector3.Distance(crosshair, rightPlayerPos))
                 {
 
                     leftPlayerFire = false;
                     rightPlayerFire = false;
                     middlePlayerFire = true;
-                    //Instantiate(missileVector, homingMissilePos, Quaternion.identity);
+                    //Instantiate(missileVector, crosshair, Quaternion.identity);
                 }
-                else if (Vector3.Distance(homingMissilePos, leftPlayerPos) < Vector3.Distance(homingMissilePos, middlePlayerPos) && Vector3.Distance(homingMissilePos, leftPlayerPos) < Vector3.Distance(homingMissilePos, rightPlayerPos))
+                else if (Vector3.Distance(crosshair, leftPlayerPos) < Vector3.Distance(crosshair, middlePlayerPos) && Vector3.Distance(crosshair, leftPlayerPos) < Vector3.Distance(crosshair, rightPlayerPos))
                 {
 
 
                     middlePlayerFire = false;
                     rightPlayerFire = false;
                     leftPlayerFire = true;
-                    //Instantiate(missileVector, homingMissilePos, Quaternion.identity);
+                    //Instantiate(missileVector, crosshair, Quaternion.identity);
                 }
 
-                else if (Vector3.Distance(homingMissilePos, rightPlayerPos) < Vector3.Distance(homingMissilePos, middlePlayerPos) && Vector3.Distance(homingMissilePos, rightPlayerPos) < Vector3.Distance(homingMissilePos, leftPlayerPos))
+                else if (Vector3.Distance(crosshair, rightPlayerPos) < Vector3.Distance(crosshair, middlePlayerPos) && Vector3.Distance(crosshair, rightPlayerPos) < Vector3.Distance(crosshair, leftPlayerPos))
                 {
 
                     middlePlayerFire = false;
                     leftPlayerFire = false;
                     rightPlayerFire = true;
-                    //Instantiate(missileVector, homingMissilePos, Quaternion.identity);
+                    //Instantiate(missileVector, crosshair, Quaternion.identity);
                 }
                 else
                     return;

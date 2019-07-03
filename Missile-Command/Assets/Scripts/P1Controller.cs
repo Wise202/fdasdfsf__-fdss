@@ -2,33 +2,22 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+//github
 public class P1Controller : MonoBehaviour
 {
+    public Transform crosshair;
     public Rigidbody missilePrefab;
     public GoldScript other;
     public Text MissileText;
-    public void BuyAmmo()
-    {
-        if (other.goldAmount > 50f)
-        {
-            other.goldAmount -= 50f;
-            missileAmmo += 3;
-        }
-    }
     public Transform middleCannonTop;
     public Transform leftCannonTop;
     public Transform rightCannonTop;
-
     public Transform midScatterLauncher;
     public Transform leftScatterLauncher;
     public Transform rightScatterLauncher;
-   
     public Rigidbody scatterMissile;
-
     public Vector3 mousePos;
-
-    private bool mouseClicked;
+    public bool mouseClicked;
 
 
     public GameObject missileDestroy;
@@ -55,10 +44,10 @@ public class P1Controller : MonoBehaviour
     void Update()
     {
         MissileText.text = "Ammo: " + missileAmmo.ToString();
-        LookAtMouse();
+        FuckingLook();
 
         //Check which missile launcher is closest to the cursor to trigger the closest launcher to fire.
-        if(playMissileClicker.middlePlayerFire == true && playMissileClicker.leftPlayerFire == false && playMissileClicker.rightPlayerFire == false)
+        if (playMissileClicker.middlePlayerFire == true && playMissileClicker.leftPlayerFire == false && playMissileClicker.rightPlayerFire == false)
         {
             FireMiddleMissile();
         }
@@ -72,18 +61,16 @@ public class P1Controller : MonoBehaviour
         }
     }
 
-    void LookAtMouse()
+    void FuckingLook()
     {
-        var dir = Input.mousePosition - Camera.main.WorldToScreenPoint(transform.position);
-        var angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+        transform.LookAt(crosshair);
     }
-    
+
     void FireMiddleMissile()
     {
         if (missileAmmo > 0)
         {
-            if (Input.GetMouseButtonDown(0))
+            if (Input.GetAxis("Fire1") > 0)
             {
 
                 Rigidbody missileInstance;
@@ -106,13 +93,13 @@ public class P1Controller : MonoBehaviour
             {
 
             }
-            if (Input.GetMouseButtonDown(0) || Input.GetMouseButtonDown(1) && mouseClicked == false)
+            if ((Input.GetAxis("Fire1") > 0) || Input.GetMouseButtonDown(1) && mouseClicked == false)
             {
               
                 mouseClicked = true;
                 mousePos = Input.mousePosition;
             }
-            if (Input.GetMouseButtonUp(0) || Input.GetMouseButtonDown(1) && mouseClicked == true)
+            if ((Input.GetAxis("Fire1") > 0) || Input.GetMouseButtonDown(1) && mouseClicked == true)
             {
                 mouseClicked = false;
             }
@@ -126,7 +113,7 @@ public class P1Controller : MonoBehaviour
     {
         if (missileAmmo > 0)
         {
-            if (Input.GetMouseButtonDown(0))
+            if (Input.GetAxis("Fire1") > 0)
             {
 
                 Rigidbody missileInstance;
@@ -145,13 +132,13 @@ public class P1Controller : MonoBehaviour
                 playMissileClicker.leftPlayerFire = false;
 
             }
-            if (Input.GetMouseButtonDown(0) || Input.GetMouseButtonDown(1) && mouseClicked == false)
+            if ((Input.GetAxis("Fire1") > 0) || Input.GetMouseButtonDown(1) && mouseClicked == false)
             {
                 
                 mouseClicked = true;
                 mousePos = Input.mousePosition;
             }
-            if (Input.GetMouseButtonUp(0) || Input.GetMouseButtonDown(1) && mouseClicked == true)
+            if ((Input.GetAxis("Fire1") > 0) || Input.GetMouseButtonDown(1) && mouseClicked == true)
             {
                 mouseClicked = false;
             }
@@ -164,7 +151,7 @@ public class P1Controller : MonoBehaviour
     {
         if (missileAmmo > 0)
         {
-            if (Input.GetMouseButtonDown(0))
+            if (Input.GetAxis("Fire1") > 0)
             {
 
                 Rigidbody missileInstance;
@@ -182,13 +169,13 @@ public class P1Controller : MonoBehaviour
 
                 playMissileClicker.rightPlayerFire = false;
             }
-            if (Input.GetMouseButtonDown(0) || Input.GetMouseButtonDown(1) && mouseClicked == false)
+            if ((Input.GetAxis("Fire1") > 0) || Input.GetMouseButtonDown(1) && mouseClicked == false)
             {
                 
                 mouseClicked = true;
                 mousePos = Input.mousePosition;
             }
-            if (Input.GetMouseButtonUp(0) || Input.GetMouseButtonDown(1) && mouseClicked == true)
+            if ((Input.GetAxis("Fire1") > 0) || Input.GetMouseButtonDown(1) && mouseClicked == true)
             {
                 mouseClicked = false;
             }
@@ -198,5 +185,12 @@ public class P1Controller : MonoBehaviour
 
     }
 
-   
+    public void BuyAmmo()
+    {
+        if (other.goldAmount > 50f)
+        {
+            other.goldAmount -= 50f;
+            missileAmmo += 3;
+        }
+    }
 }

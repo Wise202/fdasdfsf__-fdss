@@ -39,7 +39,7 @@ public class Explosion : MonoBehaviour
         }
        else if(hasExploded == true && destroySelf == false)
         {
-            Debug.Log("Shrink Boom");
+            
             transform.localScale -= new Vector3(3f, 3f, 3f) * Time.deltaTime;
             xCurrent = transform.localScale.x;
             yCurrent = transform.localScale.y;
@@ -51,7 +51,7 @@ public class Explosion : MonoBehaviour
         }
        else if(destroySelf == true)
         {
-            Debug.Log("Destroy Explosion");
+            
             Destroy(gameObject);
         }     
     }
