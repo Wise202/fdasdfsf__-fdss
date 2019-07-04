@@ -17,6 +17,7 @@ TagManager:
   - ScatterSpread
   - AIMissile
   - Base
+  - EnemyBase
   layers:
   - Default
   - TransparentFX

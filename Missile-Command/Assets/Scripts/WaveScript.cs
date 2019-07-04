@@ -10,6 +10,7 @@ public class WaveScript : MonoBehaviour
     private SpawnState state = SpawnState.Countdown;
 
     //Setting up the how each wave will work.
+    [SerializeField]
     public class EnemyWave
     {
         public string name;
