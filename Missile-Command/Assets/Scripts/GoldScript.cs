@@ -21,7 +21,7 @@ public class GoldScript : MonoBehaviour
     void Update()
     {
         ChangeGold();
-        goldText.text = "Gold: " + goldAmount.ToString("00");
+        goldText.text = goldAmount.ToString("00");
         
     }
     void ChangeGold()

@@ -43,7 +43,7 @@ public class P1Controller : MonoBehaviour
 
     void Update()
     {
-        MissileText.text = "Ammo: " + missileAmmo.ToString();
+        MissileText.text = missileAmmo.ToString();
         FuckingLook();
 
         //Check which missile launcher is closest to the cursor to trigger the closest launcher to fire.

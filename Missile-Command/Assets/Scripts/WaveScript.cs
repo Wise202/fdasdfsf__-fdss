@@ -5,15 +5,19 @@ using UnityEngine.UI;
 
 public class WaveScript : MonoBehaviour
 {
+    //So th way that this workks is that, it be spawning in the object that spawn the missiles.
+    //Once all the objects that spawns the missiles dissappear, then the new wave will come.
+
     //This enum will make sure that the wave will work in the order it meant to go.
     public enum SpawnState { Spawning, Waiting, Countdown };
     private SpawnState state = SpawnState.Countdown;
 
     //Setting up the how each wave will work.
-    [SerializeField]
+    [System.Serializable]
     public class EnemyWave
     {
         public string name;
+        public Transform[] spawnEnemyMissile;
         public int count;
         public float rate;
     }
@@ -27,7 +31,7 @@ public class WaveScript : MonoBehaviour
     public float enemySpawnCountDown;
     public float searchCountDown = 1f;
 
-    public RandomSpawn[] missileSpawn = new RandomSpawn[24];
+    public Text waveText;
 
     // Start is called before the first frame update
     void Start()
@@ -51,6 +55,20 @@ public class WaveScript : MonoBehaviour
                 return;
             }
         }
+
+        if (enemySpawnCountDown <= 0)
+        {
+            if (state != SpawnState.Spawning)
+            {
+                StartCoroutine(SpawningMissiles(waves[nextWave]));
+            }
+        }
+        else
+        {
+            enemySpawnCountDown -= Time.deltaTime;
+        }
+
+        waveText.text = wavenumber.ToString();
     }
 
     bool EnemyIsAlive()
@@ -59,7 +77,7 @@ public class WaveScript : MonoBehaviour
         if (searchCountDown <= 0f)
         {
             searchCountDown = 1f;
-            if (GameObject.FindGameObjectsWithTag("EnemyMissile").Length == 0)
+            if (GameObject.FindGameObjectsWithTag("EnemyBase").Length == 0)
             {
                 return false;
             }
@@ -76,12 +94,13 @@ public class WaveScript : MonoBehaviour
 
         if (nextWave + 1 > waves.Length - 1)
         {
-            nextWave = 0;
-            Debug.Log("All waves completed! Time to Loop");
+            Time.timeScale = 0;
+            Debug.Log("All waves completed! Game is Complete!");
         }
         else
         {
             nextWave++;
+            wavenumber++;
         }
     }
 
@@ -94,11 +113,11 @@ public class WaveScript : MonoBehaviour
         for (int i = 0; i < wave.count; i++)
         {
             EnemyWave missile = waves[i];
-            SpawnMissile();
+            SpawnMissile(missile.spawnEnemyMissile[Random.Range(0, missile.spawnEnemyMissile.Length)]);
             yield return new WaitForSeconds(1f / wave.rate);
-            SpawnMissile();
+            SpawnMissile(missile.spawnEnemyMissile[Random.Range(0, missile.spawnEnemyMissile.Length)]);
             yield return new WaitForSeconds(1.5f / wave.rate);
-            SpawnMissile();
+            SpawnMissile(missile.spawnEnemyMissile[Random.Range(0, missile.spawnEnemyMissile.Length)]);
             yield return new WaitForSeconds(2f / wave.rate);
         }
 
@@ -107,8 +126,8 @@ public class WaveScript : MonoBehaviour
         yield break;
     }
 
-    void SpawnMissile()
+    void SpawnMissile(Transform missileSpawn)
     {
-        missileSpawn[Random.Range(0, 23)].waitSpawner();
+        Instantiate(missileSpawn);
     }
 }

@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class RandomSpawn : MonoBehaviour
 {
+    public enum MissileState { Spawning, Wait};
+    public MissileState state = MissileState.Spawning;
+
     public GameObject[] enemytospawn;
     public Vector3 spawnValue;
 
@@ -13,7 +16,9 @@ public class RandomSpawn : MonoBehaviour
     public int startWait;
     public bool stop;
 
-    int randomEnemy; 
+    int randomEnemy;
+
+    public int countDownTime = 20;
 
     // Start is called before the first frame update
     void Start()
@@ -30,6 +35,19 @@ public class RandomSpawn : MonoBehaviour
     void Update()
     {
         spawnWait = Random.Range(spawnShortWait, spawnLongWait);
+
+        //So I just made a timer for once the countDownTimer reaches 0, these objects will dissappear.
+        if (state == MissileState.Spawning)
+        {
+            StartCoroutine("MissileSpawnPointLifeSpam");
+            state = MissileState.Wait;
+        }
+
+        if (countDownTime == 0)
+        {
+            StopCoroutine("MissileSpawnPointLifeSpam");
+            Destroy(gameObject);
+        }
     }
 
     public IEnumerator waitSpawner()
@@ -50,5 +68,14 @@ public class RandomSpawn : MonoBehaviour
         }
 
         //GetComponent<Rigidbody>().AddForce(new Vector3(-1, 0,0), ForceMode.Acceleration);
+    }
+
+    IEnumerator MissileSpawnPointLifeSpam()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(1);
+            countDownTime--;
+        }
     }
 }
