@@ -45,6 +45,7 @@ public class P1Controller : MonoBehaviour
     {
         MissileText.text = missileAmmo.ToString();
         FuckingLook();
+        BuyAmmo();
 
         //Check which missile launcher is closest to the cursor to trigger the closest launcher to fire.
         if (playMissileClicker.middlePlayerFire == true && playMissileClicker.leftPlayerFire == false && playMissileClicker.rightPlayerFire == false)
@@ -81,7 +82,7 @@ public class P1Controller : MonoBehaviour
                 missileAmmo--;
                 playMissileClicker.middlePlayerFire = false;
             }
-            else if (Input.GetMouseButtonDown(1))
+            else if (Input.GetButtonDown("Fire2"))
             {
                 Rigidbody scattershotInstance;
                 scattershotInstance = Instantiate(scatterMissile, midScatterLauncher.position, midScatterLauncher.rotation) as Rigidbody;
@@ -94,13 +95,13 @@ public class P1Controller : MonoBehaviour
             {
 
             }
-            if ((Input.GetButtonDown("Fire1")) || Input.GetMouseButtonDown(1) && mouseClicked == false)
+            if ((Input.GetButtonDown("Fire1")) || Input.GetButtonDown("Fire2") && mouseClicked == false)
             {
               
                 mouseClicked = true;
                 mousePos = Input.mousePosition;
             }
-            if ((Input.GetButtonUp("Fire1")) || Input.GetMouseButtonDown(1) && mouseClicked == true)
+            if ((Input.GetButtonUp("Fire1")) || Input.GetButtonUp("Fire2") && mouseClicked == true)
             {
                 mouseClicked = false;
             }
@@ -125,7 +126,7 @@ public class P1Controller : MonoBehaviour
                 missileAmmo--;
                 playMissileClicker.leftPlayerFire = false;
             }
-            else if (Input.GetMouseButtonDown(1))
+            else if (Input.GetButtonDown("Fire2"))
             {
                 Rigidbody scattershotInstance;
                 scattershotInstance = Instantiate(scatterMissile, leftScatterLauncher.position, leftScatterLauncher.rotation) as Rigidbody;
@@ -134,13 +135,13 @@ public class P1Controller : MonoBehaviour
                 playMissileClicker.leftPlayerFire = false;
 
             }
-            if ((Input.GetButtonDown("Fire1")) || Input.GetMouseButtonDown(1) && mouseClicked == false)
+            if ((Input.GetButtonDown("Fire1")) || Input.GetButtonDown("Fire2") && mouseClicked == false)
             {
                 
                 mouseClicked = true;
                 mousePos = Input.mousePosition;
             }
-            if ((Input.GetButtonUp("Fire1")) || Input.GetMouseButtonDown(1) && mouseClicked == true)
+            if ((Input.GetButtonUp("Fire1")) || Input.GetButtonUp("Fire2") && mouseClicked == true)
             {
                 mouseClicked = false;
             }
@@ -163,7 +164,7 @@ public class P1Controller : MonoBehaviour
                 missileAmmo--;
                 playMissileClicker.rightPlayerFire = false;
             }
-            else if (Input.GetMouseButtonDown(1))
+            else if (Input.GetButtonDown("Fire2"))
             {
                 Rigidbody scattershotInstance;
                 scattershotInstance = Instantiate(scatterMissile, rightScatterLauncher.position, rightScatterLauncher.rotation) as Rigidbody;
@@ -171,13 +172,13 @@ public class P1Controller : MonoBehaviour
 
                 playMissileClicker.rightPlayerFire = false;
             }
-            if ((Input.GetButtonDown("Fire1")) || Input.GetMouseButtonDown(1) && mouseClicked == false)
+            if ((Input.GetButtonDown("Fire1")) || Input.GetButtonDown("Fire2") && mouseClicked == false)
             {
                 
                 mouseClicked = true;
                 mousePos = Input.mousePosition;
             }
-            if ((Input.GetButtonUp("Fire1")) || Input.GetMouseButtonDown(1) && mouseClicked == true)
+            if ((Input.GetButtonUp("Fire1")) || Input.GetButtonUp("Fire2") && mouseClicked == true)
             {
                 mouseClicked = false;
             }
@@ -189,7 +190,7 @@ public class P1Controller : MonoBehaviour
 
     public void BuyAmmo()
     {
-        if (other.goldAmount > 50f)
+        if (other.goldAmount > 50f && Input.GetButtonDown("Jump"))
         {
             other.goldAmount -= 50f;
             missileAmmo += 3;
