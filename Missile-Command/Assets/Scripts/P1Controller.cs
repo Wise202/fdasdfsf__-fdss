@@ -27,13 +27,18 @@ public class P1Controller : MonoBehaviour
            GameObject rightShooter;
 
            PlayerMissileClicker playMissileClicker;
+           AmmoManager ammoManager;
 
-           public int missileAmmo = 20;
-
+           /*public int leftAmmo = 20;
+           public int middleAmmo = 20;
+           public int rightAmmo = 20;
+           public int totalAmmo;*/
+ 
 
     void Start()
     {
         playMissileClicker = FindObjectOfType<PlayerMissileClicker>();
+        ammoManager = FindObjectOfType<AmmoManager>();
 
         middleShooter = GameObject.FindGameObjectWithTag("MiddlePlayer");
         leftShooter = GameObject.FindGameObjectWithTag("LeftPlayer");
@@ -43,7 +48,7 @@ public class P1Controller : MonoBehaviour
 
     void Update()
     {
-        MissileText.text = missileAmmo.ToString();
+      
         FuckingLook();
         BuyAmmo();
 
@@ -69,7 +74,7 @@ public class P1Controller : MonoBehaviour
 
     void FireMiddleMissile()
     {
-        if (missileAmmo > 0)
+        if (ammoManager.leftAmmo > 0)
         {
             if (Input.GetButtonDown("Fire1"))
             {
@@ -79,7 +84,7 @@ public class P1Controller : MonoBehaviour
                 missileInstance = Instantiate(missilePrefab, middleCannonTop.position, middleCannonTop.rotation) as Rigidbody;
                 missileInstance.AddForce(middleCannonTop.forward * 3000);
 
-                missileAmmo--;
+                ammoManager.MiddleMissile();
                 playMissileClicker.middlePlayerFire = false;
             }
             else if (Input.GetButtonDown("Fire2"))
@@ -113,7 +118,7 @@ public class P1Controller : MonoBehaviour
     }
     void FireLeftMissile()
     {
-        if (missileAmmo > 0)
+        if (ammoManager.leftAmmo > 0)
         {
             if (Input.GetButtonDown("Fire1"))
             {
@@ -123,7 +128,7 @@ public class P1Controller : MonoBehaviour
                 missileInstance = Instantiate(missilePrefab, leftCannonTop.position, leftCannonTop.rotation) as Rigidbody;
                 missileInstance.AddForce(leftCannonTop.forward * 3000);
 
-                missileAmmo--;
+                ammoManager.LeftMissile();
                 playMissileClicker.leftPlayerFire = false;
             }
             else if (Input.GetButtonDown("Fire2"))
@@ -152,7 +157,7 @@ public class P1Controller : MonoBehaviour
     }
     void FireRightMissile()
     {
-        if (missileAmmo > 0)
+        if (ammoManager.rightAmmo > 0)
         {
             if (Input.GetButtonDown("Fire1"))
             {
@@ -161,7 +166,7 @@ public class P1Controller : MonoBehaviour
                 missileInstance = Instantiate(missilePrefab, rightCannonTop.position, rightCannonTop.rotation) as Rigidbody;
                 missileInstance.AddForce(rightCannonTop.forward * 3000);
 
-                missileAmmo--;
+                ammoManager.RightMissile();
                 playMissileClicker.rightPlayerFire = false;
             }
             else if (Input.GetButtonDown("Fire2"))
@@ -193,7 +198,7 @@ public class P1Controller : MonoBehaviour
         if (other.goldAmount > 50f && Input.GetButtonDown("Jump"))
         {
             other.goldAmount -= 50f;
-            missileAmmo += 3;
+            //middleAmmo += 3;
         }
     }
 }
