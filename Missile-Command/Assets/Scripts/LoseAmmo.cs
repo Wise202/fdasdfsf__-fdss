@@ -10,7 +10,7 @@ public class LoseAmmo : MonoBehaviour
     {
         if (collision.collider.tag == "Missile")
         {
-            ammoSupply.missileAmmo -= 10;
+            //ammoSupply.missileAmmo -= 10;
             Destroy(gameObject);
         }
     }
