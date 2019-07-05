@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class DestroyMissile1 : MonoBehaviour
 {
+    public GameObject explosion;
     // Update is called once per frame
     void Update()
     {
@@ -20,6 +21,12 @@ public class DestroyMissile1 : MonoBehaviour
         if (collision.collider.tag == "Base")
         {
             Destroy(gameObject);
+        }
+        if(collision.collider.tag == "Missile")
+        {
+            Instantiate(explosion, transform.position, transform.rotation);
+            Destroy(gameObject);
+
         }
     }
 }
