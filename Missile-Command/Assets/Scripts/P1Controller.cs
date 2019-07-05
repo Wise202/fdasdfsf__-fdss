@@ -45,6 +45,7 @@ public class P1Controller : MonoBehaviour
     {
         MissileText.text = missileAmmo.ToString();
         FuckingLook();
+        BuyAmmo();
 
         //Check which missile launcher is closest to the cursor to trigger the closest launcher to fire.
         if (playMissileClicker.middlePlayerFire == true && playMissileClicker.leftPlayerFire == false && playMissileClicker.rightPlayerFire == false)
@@ -189,7 +190,7 @@ public class P1Controller : MonoBehaviour
 
     public void BuyAmmo()
     {
-        if (other.goldAmount > 50f)
+        if (other.goldAmount > 50f && Input.GetButtonDown("Jump"))
         {
             other.goldAmount -= 50f;
             missileAmmo += 3;
