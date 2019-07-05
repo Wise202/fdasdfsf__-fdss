@@ -22,18 +22,21 @@ public class P1Controller : MonoBehaviour
 
     public GameObject missileDestroy;
 
-           GameObject middleShooter;
-           GameObject leftShooter;
-           GameObject rightShooter;
+    GameObject middleShooter;
+    GameObject leftShooter;
+    GameObject rightShooter;
 
-           PlayerMissileClicker playMissileClicker;
-           AmmoManager ammoManager;
+    PlayerMissileClicker playMissileClicker;
+    AmmoManager ammoManager;
 
-           /*public int leftAmmo = 20;
-           public int middleAmmo = 20;
-           public int rightAmmo = 20;
-           public int totalAmmo;*/
- 
+    /*public int leftAmmo = 20;
+    public int middleAmmo = 20;
+    public int rightAmmo = 20;
+    public int totalAmmo;*/
+
+    public bool leftEmpty = false;
+    public bool middleEmpty = false;
+    public bool rightEmpty = false;
 
     void Start()
     {
@@ -65,6 +68,18 @@ public class P1Controller : MonoBehaviour
         {
             FireRightMissile();
         }
+        if(ammoManager.leftAmmo == 0)
+        {
+            leftEmpty = true;
+        }
+        if(ammoManager.middleAmmo == 0)
+        {
+            middleEmpty = true;
+        }
+        if(ammoManager.rightAmmo == 0)
+        {
+            rightEmpty = true;
+        }
     }
 
     void FuckingLook()
@@ -74,7 +89,7 @@ public class P1Controller : MonoBehaviour
 
     void FireMiddleMissile()
     {
-        if (ammoManager.leftAmmo > 0)
+        if (ammoManager.middleAmmo > 0)
         {
             if (Input.GetButtonDown("Fire1"))
             {
@@ -112,6 +127,7 @@ public class P1Controller : MonoBehaviour
             }
             
         }
+       
         else
             return;
 

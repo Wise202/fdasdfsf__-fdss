@@ -26,9 +26,12 @@ public class PlayerMissileClicker : MonoBehaviour
     public bool middlePlayerFire = false;
     public bool leftPlayerFire = false;
     public bool rightPlayerFire = false;
+
+    P1Controller playerController;
     // Start is called before the first frame update
     void Start()
     {
+        playerController = FindObjectOfType<P1Controller>();
         middlePlayerPos = middlePlayer.transform.position;
         leftPlayerPos = leftPlayer.transform.position;
         rightPlayerPos = rightPlayer.transform.position;
@@ -131,5 +134,30 @@ public class PlayerMissileClicker : MonoBehaviour
 
             }
         }
+    }
+    public void EmptyLauncher()
+    {
+        if(playerController.leftEmpty == true)
+        {
+            if (Vector3.Distance(crosshair, middlePlayerPos) < Vector3.Distance(crosshair, leftPlayerPos) && Vector3.Distance(crosshair, middlePlayerPos) < Vector3.Distance(crosshair, rightPlayerPos))
+            {
+
+                leftPlayerFire = false;
+                rightPlayerFire = false;
+                middlePlayerFire = true;
+                Instantiate(missileVector, crosshair, Quaternion.identity);
+            }
+            else if (Vector3.Distance(crosshair, rightPlayerPos) < Vector3.Distance(crosshair, middlePlayerPos) && Vector3.Distance(crosshair, rightPlayerPos) < Vector3.Distance(crosshair, leftPlayerPos))
+            {
+
+                middlePlayerFire = false;
+                leftPlayerFire = false;
+                rightPlayerFire = true;
+                Instantiate(missileVector, crosshair, Quaternion.identity);
+            }
+            else
+                return;
+        }
+
     }
 }
