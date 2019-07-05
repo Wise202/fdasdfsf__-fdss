@@ -70,8 +70,9 @@ public class P1Controller : MonoBehaviour
     {
         if (missileAmmo > 0)
         {
-            if (Input.GetAxis("Fire1") > 0)
+            if (Input.GetButtonDown("Fire1"))
             {
+                
 
                 Rigidbody missileInstance;
                 missileInstance = Instantiate(missilePrefab, middleCannonTop.position, middleCannonTop.rotation) as Rigidbody;
@@ -93,13 +94,13 @@ public class P1Controller : MonoBehaviour
             {
 
             }
-            if ((Input.GetAxis("Fire1") > 0) || Input.GetMouseButtonDown(1) && mouseClicked == false)
+            if ((Input.GetButtonDown("Fire1")) || Input.GetMouseButtonDown(1) && mouseClicked == false)
             {
               
                 mouseClicked = true;
                 mousePos = Input.mousePosition;
             }
-            if ((Input.GetAxis("Fire1") > 0) || Input.GetMouseButtonDown(1) && mouseClicked == true)
+            if ((Input.GetButtonUp("Fire1")) || Input.GetMouseButtonDown(1) && mouseClicked == true)
             {
                 mouseClicked = false;
             }
@@ -113,8 +114,9 @@ public class P1Controller : MonoBehaviour
     {
         if (missileAmmo > 0)
         {
-            if (Input.GetAxis("Fire1") > 0)
+            if (Input.GetButtonDown("Fire1"))
             {
+                
 
                 Rigidbody missileInstance;
                 missileInstance = Instantiate(missilePrefab, leftCannonTop.position, leftCannonTop.rotation) as Rigidbody;
@@ -132,13 +134,13 @@ public class P1Controller : MonoBehaviour
                 playMissileClicker.leftPlayerFire = false;
 
             }
-            if ((Input.GetAxis("Fire1") > 0) || Input.GetMouseButtonDown(1) && mouseClicked == false)
+            if ((Input.GetButtonDown("Fire1")) || Input.GetMouseButtonDown(1) && mouseClicked == false)
             {
                 
                 mouseClicked = true;
                 mousePos = Input.mousePosition;
             }
-            if ((Input.GetAxis("Fire1") > 0) || Input.GetMouseButtonDown(1) && mouseClicked == true)
+            if ((Input.GetButtonUp("Fire1")) || Input.GetMouseButtonDown(1) && mouseClicked == true)
             {
                 mouseClicked = false;
             }
@@ -151,9 +153,9 @@ public class P1Controller : MonoBehaviour
     {
         if (missileAmmo > 0)
         {
-            if (Input.GetAxis("Fire1") > 0)
+            if (Input.GetButtonDown("Fire1"))
             {
-
+                
                 Rigidbody missileInstance;
                 missileInstance = Instantiate(missilePrefab, rightCannonTop.position, rightCannonTop.rotation) as Rigidbody;
                 missileInstance.AddForce(rightCannonTop.forward * 3000);
@@ -169,13 +171,13 @@ public class P1Controller : MonoBehaviour
 
                 playMissileClicker.rightPlayerFire = false;
             }
-            if ((Input.GetAxis("Fire1") > 0) || Input.GetMouseButtonDown(1) && mouseClicked == false)
+            if ((Input.GetButtonDown("Fire1")) || Input.GetMouseButtonDown(1) && mouseClicked == false)
             {
                 
                 mouseClicked = true;
                 mousePos = Input.mousePosition;
             }
-            if ((Input.GetAxis("Fire1") > 0) || Input.GetMouseButtonDown(1) && mouseClicked == true)
+            if ((Input.GetButtonUp("Fire1")) || Input.GetMouseButtonDown(1) && mouseClicked == true)
             {
                 mouseClicked = false;
             }

@@ -12,10 +12,7 @@ public class DestroyObject : MonoBehaviour
     {
         //In case the missile didn't hit a vector, it will still destroy itself after time off screen.
         deathTimer += Time.deltaTime;
-        if(deathTimer >= 3f)
-        {
-            Destroy(gameObject);
-        }
+       
 
     }
     //Upon hitting the vector, destroy itself.
@@ -23,7 +20,7 @@ public class DestroyObject : MonoBehaviour
     {
         if (col.gameObject.tag == "Explosion_Point")
         {
-            Debug.Log("Hey");
+            
             //Destroy(col.gameObject);
             Destroy(gameObject);
             

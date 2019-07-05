@@ -48,10 +48,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   state: 0
   enemytospawn:
-  - {fileID: 5851679311635294280, guid: dc7ffa16a6ec44843873b454aebabe87, type: 3}
-  - {fileID: 5851679311635294280, guid: dc7ffa16a6ec44843873b454aebabe87, type: 3}
-  - {fileID: 5851679311635294280, guid: dc7ffa16a6ec44843873b454aebabe87, type: 3}
-  - {fileID: 5851679311635294280, guid: dc7ffa16a6ec44843873b454aebabe87, type: 3}
+  - {fileID: 208635511139557179, guid: 70a9c5c8618fcf04ab317c95d9f53505, type: 3}
+  - {fileID: 208635511139557179, guid: 70a9c5c8618fcf04ab317c95d9f53505, type: 3}
+  - {fileID: 208635511139557179, guid: 70a9c5c8618fcf04ab317c95d9f53505, type: 3}
+  - {fileID: 208635511139557179, guid: 70a9c5c8618fcf04ab317c95d9f53505, type: 3}
   spawnValue: {x: 0, y: 0, z: 0}
   spawnWait: 0
   spawnLongWait: 8
