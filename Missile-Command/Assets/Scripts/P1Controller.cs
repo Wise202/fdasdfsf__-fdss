@@ -51,7 +51,6 @@ public class P1Controller : MonoBehaviour
       
         FuckingLook();
         BuyAmmo();
-
         //Check which missile launcher is closest to the cursor to trigger the closest launcher to fire.
         if (playMissileClicker.middlePlayerFire == true && playMissileClicker.leftPlayerFire == false && playMissileClicker.rightPlayerFire == false)
         {
@@ -78,8 +77,8 @@ public class P1Controller : MonoBehaviour
         {
             if (Input.GetButtonDown("Fire1"))
             {
-                
 
+                Debug.Log("test");
                 Rigidbody missileInstance;
                 missileInstance = Instantiate(missilePrefab, middleCannonTop.position, middleCannonTop.rotation) as Rigidbody;
                 missileInstance.AddForce(middleCannonTop.forward * 3000);
@@ -102,12 +101,13 @@ public class P1Controller : MonoBehaviour
             }
             if ((Input.GetButtonDown("Fire1")) || Input.GetButtonDown("Fire2") && mouseClicked == false)
             {
-              
+                Debug.Log("test");
                 mouseClicked = true;
                 mousePos = Input.mousePosition;
             }
             if ((Input.GetButtonUp("Fire1")) || Input.GetButtonUp("Fire2") && mouseClicked == true)
             {
+                Debug.Log("test");
                 mouseClicked = false;
             }
             
@@ -160,7 +160,7 @@ public class P1Controller : MonoBehaviour
         if (ammoManager.rightAmmo > 0)
         {
             if (Input.GetButtonDown("Fire1"))
-            {
+            {                
                 
                 Rigidbody missileInstance;
                 missileInstance = Instantiate(missilePrefab, rightCannonTop.position, rightCannonTop.rotation) as Rigidbody;
