@@ -50,6 +50,8 @@ MonoBehaviour:
   enemytospawn:
   - {fileID: 5851679311635294280, guid: dc7ffa16a6ec44843873b454aebabe87, type: 3}
   - {fileID: 5851679311635294280, guid: dc7ffa16a6ec44843873b454aebabe87, type: 3}
+  - {fileID: 5851679311635294280, guid: dc7ffa16a6ec44843873b454aebabe87, type: 3}
+  - {fileID: 5851679311635294280, guid: dc7ffa16a6ec44843873b454aebabe87, type: 3}
   spawnValue: {x: 0, y: 0, z: 0}
   spawnWait: 0
   spawnLongWait: 2
