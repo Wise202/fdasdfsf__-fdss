@@ -28,6 +28,7 @@ public class PlayerMissileClicker : MonoBehaviour
     public bool rightPlayerFire = false;
 
     P1Controller playerController;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -69,7 +70,6 @@ public class PlayerMissileClicker : MonoBehaviour
                 else if (Vector3.Distance(crosshair, leftPlayerPos) < Vector3.Distance(crosshair, middlePlayerPos) && Vector3.Distance(crosshair, leftPlayerPos) < Vector3.Distance(crosshair, rightPlayerPos))
                 {
                     
-
                     middlePlayerFire = false;
                     rightPlayerFire = false;
                     leftPlayerFire = true;
@@ -95,6 +95,7 @@ public class PlayerMissileClicker : MonoBehaviour
 
             
         }
+        //Homing Missile System
         else if(Input.GetButtonDown("Fire3"))
         {
             Ray homingRay = Camera.main.ScreenPointToRay(crosshair);
@@ -109,7 +110,7 @@ public class PlayerMissileClicker : MonoBehaviour
                     leftPlayerFire = false;
                     rightPlayerFire = false;
                     middlePlayerFire = true;
-                    //Instantiate(missileVector, crosshair, Quaternion.identity);
+                    
                 }
                 else if (Vector3.Distance(crosshair, leftPlayerPos) < Vector3.Distance(crosshair, middlePlayerPos) && Vector3.Distance(crosshair, leftPlayerPos) < Vector3.Distance(crosshair, rightPlayerPos))
                 {
@@ -118,7 +119,7 @@ public class PlayerMissileClicker : MonoBehaviour
                     middlePlayerFire = false;
                     rightPlayerFire = false;
                     leftPlayerFire = true;
-                    //Instantiate(missileVector, crosshair, Quaternion.identity);
+                    
                 }
 
                 else if (Vector3.Distance(crosshair, rightPlayerPos) < Vector3.Distance(crosshair, middlePlayerPos) && Vector3.Distance(crosshair, rightPlayerPos) < Vector3.Distance(crosshair, leftPlayerPos))
@@ -127,7 +128,7 @@ public class PlayerMissileClicker : MonoBehaviour
                     middlePlayerFire = false;
                     leftPlayerFire = false;
                     rightPlayerFire = true;
-                    //Instantiate(missileVector, crosshair, Quaternion.identity);
+                    
                 }
                 else
                     return;
@@ -157,6 +158,51 @@ public class PlayerMissileClicker : MonoBehaviour
             }
             else
                 return;
+        }
+        else if (playerController.middleEmpty == true)
+        { 
+            if (Vector3.Distance(crosshair, leftPlayerPos) < Vector3.Distance(crosshair, middlePlayerPos) && Vector3.Distance(crosshair, leftPlayerPos) < Vector3.Distance(crosshair, rightPlayerPos))
+            {
+                middlePlayerFire = false;
+                rightPlayerFire = false;
+                leftPlayerFire = true;
+                Instantiate(missileVector, crosshair, Quaternion.identity);
+            }
+
+            else if (Vector3.Distance(crosshair, rightPlayerPos) < Vector3.Distance(crosshair, middlePlayerPos) && Vector3.Distance(crosshair, rightPlayerPos) < Vector3.Distance(crosshair, leftPlayerPos))
+            {
+                middlePlayerFire = false;
+                leftPlayerFire = false;
+                rightPlayerFire = true;
+                Instantiate(missileVector, crosshair, Quaternion.identity);
+            }
+            else
+                return;
+        }
+        else if(playerController.rightEmpty == true)
+        {
+            if (Vector3.Distance(crosshair, middlePlayerPos) < Vector3.Distance(crosshair, leftPlayerPos) && Vector3.Distance(crosshair, middlePlayerPos) < Vector3.Distance(crosshair, rightPlayerPos))
+            {
+
+                leftPlayerFire = false;
+                rightPlayerFire = false;
+                middlePlayerFire = true;
+                Instantiate(missileVector, crosshair, Quaternion.identity);
+            }
+            else if (Vector3.Distance(crosshair, leftPlayerPos) < Vector3.Distance(crosshair, middlePlayerPos) && Vector3.Distance(crosshair, leftPlayerPos) < Vector3.Distance(crosshair, rightPlayerPos))
+            {
+
+                middlePlayerFire = false;
+                rightPlayerFire = false;
+                leftPlayerFire = true;
+                Instantiate(missileVector, crosshair, Quaternion.identity);
+            }
+            else
+                return;
+        }
+        else if(playerController.totallyEmpty == true)
+        {
+            return;
         }
 
     }

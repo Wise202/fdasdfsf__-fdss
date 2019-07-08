@@ -37,6 +37,7 @@ public class P1Controller : MonoBehaviour
     public bool leftEmpty = false;
     public bool middleEmpty = false;
     public bool rightEmpty = false;
+    public bool totallyEmpty = false;
 
     void Start()
     {
@@ -78,6 +79,10 @@ public class P1Controller : MonoBehaviour
         if(ammoManager.rightAmmo == 0)
         {
             rightEmpty = true;
+        }
+        if(leftEmpty == true && middleEmpty == true && rightEmpty == true)
+        {
+            totallyEmpty = true;
         }
     }
 
