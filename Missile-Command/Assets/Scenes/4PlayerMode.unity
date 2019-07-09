@@ -167,6 +167,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8f2992a0fc8d214ca9ed2f3b115a475, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  crosshair: {fileID: 0}
   missilePrefab: {fileID: -1783885968766688106, guid: dc7ffa16a6ec44843873b454aebabe87,
     type: 3}
   other: {fileID: 0}
@@ -174,10 +175,18 @@ MonoBehaviour:
   middleCannonTop: {fileID: 956119624}
   leftCannonTop: {fileID: 1521236563}
   rightCannonTop: {fileID: 747596459}
+  midScatterLauncher: {fileID: 0}
+  leftScatterLauncher: {fileID: 0}
+  rightScatterLauncher: {fileID: 0}
+  scatterMissile: {fileID: 0}
   mousePos: {x: 0, y: 0, z: 0}
+  mouseClicked: 0
   missileDestroy: {fileID: -927199367670048503, guid: 0401ba5071b82e945a6b9f7cc8232eca,
     type: 3}
-  missileAmmo: 20
+  leftEmpty: 0
+  middleEmpty: 0
+  rightEmpty: 0
+  totallyEmpty: 0
 --- !u!65 &4325328
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -610,7 +619,7 @@ Transform:
   - {fileID: 639641918}
   - {fileID: 703029425}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &245898590
 GameObject:
@@ -767,6 +776,7 @@ MeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 667d49f9211fba346ae32ad76a09afd7, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1220,6 +1230,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8f2992a0fc8d214ca9ed2f3b115a475, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  crosshair: {fileID: 0}
   missilePrefab: {fileID: -1783885968766688106, guid: dc7ffa16a6ec44843873b454aebabe87,
     type: 3}
   other: {fileID: 0}
@@ -1227,10 +1238,18 @@ MonoBehaviour:
   middleCannonTop: {fileID: 1002284454}
   leftCannonTop: {fileID: 2135477839}
   rightCannonTop: {fileID: 391801245}
+  midScatterLauncher: {fileID: 0}
+  leftScatterLauncher: {fileID: 0}
+  rightScatterLauncher: {fileID: 0}
+  scatterMissile: {fileID: 0}
   mousePos: {x: 0, y: 0, z: 0}
+  mouseClicked: 0
   missileDestroy: {fileID: -927199367670048503, guid: 0401ba5071b82e945a6b9f7cc8232eca,
     type: 3}
-  missileAmmo: 20
+  leftEmpty: 0
+  middleEmpty: 0
+  rightEmpty: 0
+  totallyEmpty: 0
 --- !u!65 &476692858
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2365,6 +2384,105 @@ Transform:
   m_Father: {fileID: 927677064}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: -180, y: 0, z: 0}
+--- !u!1 &856848232
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 856848236}
+  - component: {fileID: 856848235}
+  - component: {fileID: 856848234}
+  - component: {fileID: 856848233}
+  m_Layer: 5
+  m_Name: Canvas
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &856848233
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 856848232}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1301386320, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IgnoreReversedGraphics: 1
+  m_BlockingObjects: 0
+  m_BlockingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+--- !u!114 &856848234
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 856848232}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1980459831, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_UiScaleMode: 0
+  m_ReferencePixelsPerUnit: 100
+  m_ScaleFactor: 1
+  m_ReferenceResolution: {x: 800, y: 600}
+  m_ScreenMatchMode: 0
+  m_MatchWidthOrHeight: 0
+  m_PhysicalUnit: 3
+  m_FallbackScreenDPI: 96
+  m_DefaultSpriteDPI: 96
+  m_DynamicPixelsPerUnit: 1
+--- !u!223 &856848235
+Canvas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 856848232}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_RenderMode: 2
+  m_Camera: {fileID: 0}
+  m_PlaneDistance: 100
+  m_PixelPerfect: 0
+  m_ReceivesEvents: 1
+  m_OverrideSorting: 0
+  m_OverridePixelPerfect: 0
+  m_SortingBucketNormalizedSize: 0
+  m_AdditionalShaderChannelsFlag: 0
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+  m_TargetDisplay: 0
+--- !u!224 &856848236
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 856848232}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1219241911}
+  m_Father: {fileID: 0}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 392, y: 220.5}
+  m_SizeDelta: {x: 784, y: 441}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &871418059
 GameObject:
   m_ObjectHideFlags: 0
@@ -2815,7 +2933,7 @@ Transform:
   - {fileID: 1020429141}
   - {fileID: 1850875496}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &948157699
 GameObject:
@@ -3044,11 +3162,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f857c3d1e3f3c3b47b6bbf1e243d451e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cH: {fileID: 0}
+  crosshair: {x: 0, y: 0, z: 0}
   missileVector: {fileID: 5409869636882261144, guid: a6c01eb883b3f8041b8f13dd7d5c06b0,
     type: 3}
   hitLayer:
     serializedVersion: 2
     m_Bits: 256
+  homingLayer:
+    serializedVersion: 2
+    m_Bits: 0
   middlePlayer: {fileID: 1298839165}
   leftPlayer: {fileID: 4325326}
   rightPlayer: {fileID: 1088891652}
@@ -3091,7 +3214,7 @@ Transform:
   - {fileID: 759440645}
   - {fileID: 2020326984}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &991106792
 GameObject:
@@ -3272,6 +3395,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8f2992a0fc8d214ca9ed2f3b115a475, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  crosshair: {fileID: 0}
   missilePrefab: {fileID: -1783885968766688106, guid: dc7ffa16a6ec44843873b454aebabe87,
     type: 3}
   other: {fileID: 0}
@@ -3279,10 +3403,18 @@ MonoBehaviour:
   middleCannonTop: {fileID: 2015771574}
   leftCannonTop: {fileID: 95116512}
   rightCannonTop: {fileID: 1821846358}
+  midScatterLauncher: {fileID: 0}
+  leftScatterLauncher: {fileID: 0}
+  rightScatterLauncher: {fileID: 0}
+  scatterMissile: {fileID: 0}
   mousePos: {x: 0, y: 0, z: 0}
+  mouseClicked: 0
   missileDestroy: {fileID: -927199367670048503, guid: 0401ba5071b82e945a6b9f7cc8232eca,
     type: 3}
-  missileAmmo: 20
+  leftEmpty: 0
+  middleEmpty: 0
+  rightEmpty: 0
+  totallyEmpty: 0
 --- !u!65 &991406445
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3418,6 +3550,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8f2992a0fc8d214ca9ed2f3b115a475, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  crosshair: {fileID: 0}
   missilePrefab: {fileID: -1783885968766688106, guid: dc7ffa16a6ec44843873b454aebabe87,
     type: 3}
   other: {fileID: 0}
@@ -3425,10 +3558,18 @@ MonoBehaviour:
   middleCannonTop: {fileID: 2015771574}
   leftCannonTop: {fileID: 95116512}
   rightCannonTop: {fileID: 1821846358}
+  midScatterLauncher: {fileID: 0}
+  leftScatterLauncher: {fileID: 0}
+  rightScatterLauncher: {fileID: 0}
+  scatterMissile: {fileID: 0}
   mousePos: {x: 0, y: 0, z: 0}
+  mouseClicked: 0
   missileDestroy: {fileID: -927199367670048503, guid: 0401ba5071b82e945a6b9f7cc8232eca,
     type: 3}
-  missileAmmo: 20
+  leftEmpty: 0
+  middleEmpty: 0
+  rightEmpty: 0
+  totallyEmpty: 0
 --- !u!65 &1012173168
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3781,6 +3922,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8f2992a0fc8d214ca9ed2f3b115a475, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  crosshair: {fileID: 0}
   missilePrefab: {fileID: -1783885968766688106, guid: dc7ffa16a6ec44843873b454aebabe87,
     type: 3}
   other: {fileID: 0}
@@ -3788,10 +3930,18 @@ MonoBehaviour:
   middleCannonTop: {fileID: 956119624}
   leftCannonTop: {fileID: 1521236563}
   rightCannonTop: {fileID: 747596459}
+  midScatterLauncher: {fileID: 0}
+  leftScatterLauncher: {fileID: 0}
+  rightScatterLauncher: {fileID: 0}
+  scatterMissile: {fileID: 0}
   mousePos: {x: 0, y: 0, z: 0}
+  mouseClicked: 0
   missileDestroy: {fileID: -927199367670048503, guid: 0401ba5071b82e945a6b9f7cc8232eca,
     type: 3}
-  missileAmmo: 20
+  leftEmpty: 0
+  middleEmpty: 0
+  rightEmpty: 0
+  totallyEmpty: 0
 --- !u!65 &1088891654
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4005,7 +4155,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1174723290
 GameObject:
@@ -4268,6 +4418,80 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1211888059}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1219241910
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1219241911}
+  - component: {fileID: 1219241913}
+  - component: {fileID: 1219241912}
+  m_Layer: 5
+  m_Name: Image
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1219241911
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1219241910}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 124}
+  m_LocalScale: {x: 3.9408, y: 3.9408, z: 3.9408}
+  m_Children: []
+  m_Father: {fileID: 856848236}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -386, y: -190}
+  m_SizeDelta: {x: 220.9, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1219241912
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1219241910}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Sprite: {fileID: 21300000, guid: 20cf62eb527643b4b8ea6f5df47abe01, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+--- !u!222 &1219241913
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1219241910}
+  m_CullTransparentMesh: 0
 --- !u!1 &1260789173
 GameObject:
   m_ObjectHideFlags: 0
@@ -4315,6 +4539,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8f2992a0fc8d214ca9ed2f3b115a475, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  crosshair: {fileID: 0}
   missilePrefab: {fileID: -1783885968766688106, guid: dc7ffa16a6ec44843873b454aebabe87,
     type: 3}
   other: {fileID: 0}
@@ -4322,10 +4547,18 @@ MonoBehaviour:
   middleCannonTop: {fileID: 1778509355}
   leftCannonTop: {fileID: 172980823}
   rightCannonTop: {fileID: 871418060}
+  midScatterLauncher: {fileID: 0}
+  leftScatterLauncher: {fileID: 0}
+  rightScatterLauncher: {fileID: 0}
+  scatterMissile: {fileID: 0}
   mousePos: {x: 0, y: 0, z: 0}
+  mouseClicked: 0
   missileDestroy: {fileID: -927199367670048503, guid: 0401ba5071b82e945a6b9f7cc8232eca,
     type: 3}
-  missileAmmo: 20
+  leftEmpty: 0
+  middleEmpty: 0
+  rightEmpty: 0
+  totallyEmpty: 0
 --- !u!65 &1260789176
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4431,6 +4664,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8f2992a0fc8d214ca9ed2f3b115a475, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  crosshair: {fileID: 0}
   missilePrefab: {fileID: -1783885968766688106, guid: dc7ffa16a6ec44843873b454aebabe87,
     type: 3}
   other: {fileID: 0}
@@ -4438,10 +4672,18 @@ MonoBehaviour:
   middleCannonTop: {fileID: 956119624}
   leftCannonTop: {fileID: 1521236563}
   rightCannonTop: {fileID: 747596459}
+  midScatterLauncher: {fileID: 0}
+  leftScatterLauncher: {fileID: 0}
+  rightScatterLauncher: {fileID: 0}
+  scatterMissile: {fileID: 0}
   mousePos: {x: 0, y: 0, z: 0}
+  mouseClicked: 0
   missileDestroy: {fileID: -927199367670048503, guid: 0401ba5071b82e945a6b9f7cc8232eca,
     type: 3}
-  missileAmmo: 20
+  leftEmpty: 0
+  middleEmpty: 0
+  rightEmpty: 0
+  totallyEmpty: 0
 --- !u!65 &1298839167
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4697,11 +4939,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f857c3d1e3f3c3b47b6bbf1e243d451e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cH: {fileID: 0}
+  crosshair: {x: 0, y: 0, z: 0}
   missileVector: {fileID: 5409869636882261144, guid: a6c01eb883b3f8041b8f13dd7d5c06b0,
     type: 3}
   hitLayer:
     serializedVersion: 2
     m_Bits: 256
+  homingLayer:
+    serializedVersion: 2
+    m_Bits: 0
   middlePlayer: {fileID: 1651541521}
   leftPlayer: {fileID: 1260789174}
   rightPlayer: {fileID: 1825938560}
@@ -4751,11 +4998,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f857c3d1e3f3c3b47b6bbf1e243d451e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cH: {fileID: 0}
+  crosshair: {x: 0, y: 0, z: 0}
   missileVector: {fileID: 5409869636882261144, guid: a6c01eb883b3f8041b8f13dd7d5c06b0,
     type: 3}
   hitLayer:
     serializedVersion: 2
     m_Bits: 256
+  homingLayer:
+    serializedVersion: 2
+    m_Bits: 0
   middlePlayer: {fileID: 1012173166}
   leftPlayer: {fileID: 1863276583}
   rightPlayer: {fileID: 991406443}
@@ -4798,7 +5050,7 @@ Transform:
   - {fileID: 875897423}
   - {fileID: 462436433}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1352389121
 GameObject:
@@ -4840,7 +5092,7 @@ RectTransform:
   - {fileID: 661251113}
   - {fileID: 1935392675}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -5318,6 +5570,7 @@ MeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 667d49f9211fba346ae32ad76a09afd7, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -5597,6 +5850,7 @@ MeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 667d49f9211fba346ae32ad76a09afd7, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -5897,6 +6151,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8f2992a0fc8d214ca9ed2f3b115a475, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  crosshair: {fileID: 0}
   missilePrefab: {fileID: -1783885968766688106, guid: dc7ffa16a6ec44843873b454aebabe87,
     type: 3}
   other: {fileID: 0}
@@ -5904,10 +6159,18 @@ MonoBehaviour:
   middleCannonTop: {fileID: 1778509355}
   leftCannonTop: {fileID: 172980823}
   rightCannonTop: {fileID: 871418060}
+  midScatterLauncher: {fileID: 0}
+  leftScatterLauncher: {fileID: 0}
+  rightScatterLauncher: {fileID: 0}
+  scatterMissile: {fileID: 0}
   mousePos: {x: 0, y: 0, z: 0}
+  mouseClicked: 0
   missileDestroy: {fileID: -927199367670048503, guid: 0401ba5071b82e945a6b9f7cc8232eca,
     type: 3}
-  missileAmmo: 20
+  leftEmpty: 0
+  middleEmpty: 0
+  rightEmpty: 0
+  totallyEmpty: 0
 --- !u!65 &1651541523
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6288,6 +6551,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8f2992a0fc8d214ca9ed2f3b115a475, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  crosshair: {fileID: 0}
   missilePrefab: {fileID: -1783885968766688106, guid: dc7ffa16a6ec44843873b454aebabe87,
     type: 3}
   other: {fileID: 0}
@@ -6295,10 +6559,18 @@ MonoBehaviour:
   middleCannonTop: {fileID: 1002284454}
   leftCannonTop: {fileID: 2135477839}
   rightCannonTop: {fileID: 391801245}
+  midScatterLauncher: {fileID: 0}
+  leftScatterLauncher: {fileID: 0}
+  rightScatterLauncher: {fileID: 0}
+  scatterMissile: {fileID: 0}
   mousePos: {x: 0, y: 0, z: 0}
+  mouseClicked: 0
   missileDestroy: {fileID: -927199367670048503, guid: 0401ba5071b82e945a6b9f7cc8232eca,
     type: 3}
-  missileAmmo: 20
+  leftEmpty: 0
+  middleEmpty: 0
+  rightEmpty: 0
+  totallyEmpty: 0
 --- !u!4 &1772776434
 Transform:
   m_ObjectHideFlags: 0
@@ -6523,6 +6795,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8f2992a0fc8d214ca9ed2f3b115a475, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  crosshair: {fileID: 0}
   missilePrefab: {fileID: -1783885968766688106, guid: dc7ffa16a6ec44843873b454aebabe87,
     type: 3}
   other: {fileID: 0}
@@ -6530,10 +6803,18 @@ MonoBehaviour:
   middleCannonTop: {fileID: 1778509355}
   leftCannonTop: {fileID: 172980823}
   rightCannonTop: {fileID: 871418060}
+  midScatterLauncher: {fileID: 0}
+  leftScatterLauncher: {fileID: 0}
+  rightScatterLauncher: {fileID: 0}
+  scatterMissile: {fileID: 0}
   mousePos: {x: 0, y: 0, z: 0}
+  mouseClicked: 0
   missileDestroy: {fileID: -927199367670048503, guid: 0401ba5071b82e945a6b9f7cc8232eca,
     type: 3}
-  missileAmmo: 20
+  leftEmpty: 0
+  middleEmpty: 0
+  rightEmpty: 0
+  totallyEmpty: 0
 --- !u!65 &1825938562
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6840,6 +7121,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8f2992a0fc8d214ca9ed2f3b115a475, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  crosshair: {fileID: 0}
   missilePrefab: {fileID: -1783885968766688106, guid: dc7ffa16a6ec44843873b454aebabe87,
     type: 3}
   other: {fileID: 0}
@@ -6847,10 +7129,18 @@ MonoBehaviour:
   middleCannonTop: {fileID: 2015771574}
   leftCannonTop: {fileID: 95116512}
   rightCannonTop: {fileID: 1821846358}
+  midScatterLauncher: {fileID: 0}
+  leftScatterLauncher: {fileID: 0}
+  rightScatterLauncher: {fileID: 0}
+  scatterMissile: {fileID: 0}
   mousePos: {x: 0, y: 0, z: 0}
+  mouseClicked: 0
   missileDestroy: {fileID: -927199367670048503, guid: 0401ba5071b82e945a6b9f7cc8232eca,
     type: 3}
-  missileAmmo: 20
+  leftEmpty: 0
+  middleEmpty: 0
+  rightEmpty: 0
+  totallyEmpty: 0
 --- !u!65 &1863276585
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7407,11 +7697,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f857c3d1e3f3c3b47b6bbf1e243d451e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cH: {fileID: 0}
+  crosshair: {x: 0, y: 0, z: 0}
   missileVector: {fileID: 5409869636882261144, guid: a6c01eb883b3f8041b8f13dd7d5c06b0,
     type: 3}
   hitLayer:
     serializedVersion: 2
     m_Bits: 256
+  homingLayer:
+    serializedVersion: 2
+    m_Bits: 0
   middlePlayer: {fileID: 1772776434}
   leftPlayer: {fileID: 2116973038}
   rightPlayer: {fileID: 476692856}
@@ -7560,7 +7855,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 667d49f9211fba346ae32ad76a09afd7, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -7713,6 +8008,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8f2992a0fc8d214ca9ed2f3b115a475, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  crosshair: {fileID: 0}
   missilePrefab: {fileID: -1783885968766688106, guid: dc7ffa16a6ec44843873b454aebabe87,
     type: 3}
   other: {fileID: 0}
@@ -7720,10 +8016,18 @@ MonoBehaviour:
   middleCannonTop: {fileID: 1002284454}
   leftCannonTop: {fileID: 2135477839}
   rightCannonTop: {fileID: 391801245}
+  midScatterLauncher: {fileID: 0}
+  leftScatterLauncher: {fileID: 0}
+  rightScatterLauncher: {fileID: 0}
+  scatterMissile: {fileID: 0}
   mousePos: {x: 0, y: 0, z: 0}
+  mouseClicked: 0
   missileDestroy: {fileID: -927199367670048503, guid: 0401ba5071b82e945a6b9f7cc8232eca,
     type: 3}
-  missileAmmo: 20
+  leftEmpty: 0
+  middleEmpty: 0
+  rightEmpty: 0
+  totallyEmpty: 0
 --- !u!65 &2116973040
 BoxCollider:
   m_ObjectHideFlags: 0
