@@ -5,7 +5,7 @@ using UnityEngine;
 public class Crosshair : MonoBehaviour
 {
     public Transform anchor;
-    public float sensitivity = 15f;
+    public float sensitivity = 1f;
     Vector3 position;
     
     // Start is called before the first frame update
