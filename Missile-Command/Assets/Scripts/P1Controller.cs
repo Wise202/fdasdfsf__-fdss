@@ -219,7 +219,8 @@ public class P1Controller : MonoBehaviour
         if (other.goldAmount > 50f && Input.GetButtonDown("Jump"))
         {
             other.goldAmount -= 50f;
-            //middleAmmo += 3;
+         
+            
         }
     }
 }
