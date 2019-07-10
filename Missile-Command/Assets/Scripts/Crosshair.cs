@@ -17,7 +17,7 @@ public class Crosshair : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector3 moveDickhead = new Vector3(Input.GetAxis("p1Horizontal"), Input.GetAxis("p1Vertical"), 0);
+        Vector3 moveDickhead = new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"), 0);
         position = position + moveDickhead * sensitivity;
 
         transform.position = position;

@@ -68,7 +68,7 @@ public class GoldScript : MonoBehaviour
             goldAmount -= 300f;
             goldCount3 = true;
             goldCount2 = false;
-            
+            Destroy(button1);
         }
     }
     

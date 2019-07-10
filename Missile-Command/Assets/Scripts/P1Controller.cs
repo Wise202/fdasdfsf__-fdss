@@ -95,7 +95,7 @@ public class P1Controller : MonoBehaviour
     {
         if (ammoManager.middleAmmo > 0)
         {
-            if (Input.GetButtonDown("p1Fire1"))
+            if (Input.GetButtonDown("Fire1"))
             {
 
                 Debug.Log("test");
@@ -106,7 +106,7 @@ public class P1Controller : MonoBehaviour
                 ammoManager.MiddleMissile();
                 playMissileClicker.middlePlayerFire = false;
             }
-            else if (Input.GetButtonDown("p1Fire2"))
+            else if (Input.GetButtonDown("Fire2"))
             {
                 Rigidbody scattershotInstance;
                 scattershotInstance = Instantiate(scatterMissile, midScatterLauncher.position, midScatterLauncher.rotation) as Rigidbody;
@@ -119,13 +119,13 @@ public class P1Controller : MonoBehaviour
             {
 
             }
-            if ((Input.GetButtonDown("p1Fire1")) || Input.GetButtonDown("p1Fire2") && mouseClicked == false)
+            if ((Input.GetButtonDown("Fire1")) || Input.GetButtonDown("Fire2") && mouseClicked == false)
             {
                 Debug.Log("test");
                 mouseClicked = true;
                 mousePos = Input.mousePosition;
             }
-            if ((Input.GetButtonUp("p1Fire1")) || Input.GetButtonUp("p1Fire2") && mouseClicked == true)
+            if ((Input.GetButtonUp("Fire1")) || Input.GetButtonUp("Fire2") && mouseClicked == true)
             {
                 Debug.Log("test");
                 mouseClicked = false;
@@ -141,7 +141,7 @@ public class P1Controller : MonoBehaviour
     {
         if (ammoManager.leftAmmo > 0)
         {
-            if (Input.GetButtonDown("p1Fire1"))
+            if (Input.GetButtonDown("Fire1"))
             {
                 
 
@@ -152,7 +152,7 @@ public class P1Controller : MonoBehaviour
                 ammoManager.LeftMissile();
                 playMissileClicker.leftPlayerFire = false;
             }
-            else if (Input.GetButtonDown("p1Fire2"))
+            else if (Input.GetButtonDown("Fire2"))
             {
                 Rigidbody scattershotInstance;
                 scattershotInstance = Instantiate(scatterMissile, leftScatterLauncher.position, leftScatterLauncher.rotation) as Rigidbody;
@@ -161,13 +161,13 @@ public class P1Controller : MonoBehaviour
                 playMissileClicker.leftPlayerFire = false;
 
             }
-            if ((Input.GetButtonDown("p1Fire1")) || Input.GetButtonDown("p1Fire2") && mouseClicked == false)
+            if ((Input.GetButtonDown("Fire1")) || Input.GetButtonDown("Fire2") && mouseClicked == false)
             {
                 
                 mouseClicked = true;
                 mousePos = Input.mousePosition;
             }
-            if ((Input.GetButtonUp("p1Fire1")) || Input.GetButtonUp("p1Fire2") && mouseClicked == true)
+            if ((Input.GetButtonUp("Fire1")) || Input.GetButtonUp("Fire2") && mouseClicked == true)
             {
                 mouseClicked = false;
             }
@@ -180,7 +180,7 @@ public class P1Controller : MonoBehaviour
     {
         if (ammoManager.rightAmmo > 0)
         {
-            if (Input.GetButtonDown("p1Fire1"))
+            if (Input.GetButtonDown("Fire1"))
             {                
                 
                 Rigidbody missileInstance;
@@ -190,7 +190,7 @@ public class P1Controller : MonoBehaviour
                 ammoManager.RightMissile();
                 playMissileClicker.rightPlayerFire = false;
             }
-            else if (Input.GetButtonDown("p1Fire2"))
+            else if (Input.GetButtonDown("Fire2"))
             {
                 Rigidbody scattershotInstance;
                 scattershotInstance = Instantiate(scatterMissile, rightScatterLauncher.position, rightScatterLauncher.rotation) as Rigidbody;
@@ -198,13 +198,13 @@ public class P1Controller : MonoBehaviour
 
                 playMissileClicker.rightPlayerFire = false;
             }
-            if ((Input.GetButtonDown("p1Fire1")) || Input.GetButtonDown("p1Fire2") && mouseClicked == false)
+            if ((Input.GetButtonDown("Fire1")) || Input.GetButtonDown("Fire2") && mouseClicked == false)
             {
                 
                 mouseClicked = true;
                 mousePos = Input.mousePosition;
             }
-            if ((Input.GetButtonUp("p1Fire1")) || Input.GetButtonUp("p1Fire2") && mouseClicked == true)
+            if ((Input.GetButtonUp("Fire1")) || Input.GetButtonUp("Fire2") && mouseClicked == true)
             {
                 mouseClicked = false;
             }
@@ -216,7 +216,7 @@ public class P1Controller : MonoBehaviour
 
     public void BuyAmmo()
     {
-        if (other.goldAmount > 50f && Input.GetButtonDown("p1Fire3"))
+        if (other.goldAmount > 50f && Input.GetButtonDown("Jump"))
         {
             other.goldAmount -= 50f;
          
