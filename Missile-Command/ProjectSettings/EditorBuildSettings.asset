@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/4PlayerMode.unity
     guid: 91ccff6e186c18a4e90a6c084cd74e87
+  - enabled: 1
+    path: Assets/Scenes/InstructionScene.unity
+    guid: 151308f6a561a7c499484ecc60199c5d
   m_configObjects: {}
