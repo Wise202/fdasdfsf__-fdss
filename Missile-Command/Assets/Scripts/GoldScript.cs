@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class GoldScript : MonoBehaviour
 {
-    public GameObject button1;
+   
     public float goldAmount = 0;
     public bool goldCount1 = false;
     public bool goldCount2 = false;
