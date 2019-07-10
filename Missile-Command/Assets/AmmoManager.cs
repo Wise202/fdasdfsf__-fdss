@@ -22,7 +22,7 @@ public class AmmoManager : MonoBehaviour
     {
         totalAmmo = leftAmmo + middleAmmo + rightAmmo;
         missileText.text = totalAmmo.ToString();
-        if (gs.goldAmount > 50f && Input.GetButtonDown("Jump"))
+        if (gs.goldAmount > 50f && Input.GetButtonDown("p1Fire3"))
         {
             leftAmmo += 1;
             rightAmmo += 1;
