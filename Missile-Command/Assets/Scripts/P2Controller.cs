@@ -7,7 +7,7 @@ public class P2Controller : MonoBehaviour
 {
     public Transform crosshair2;
     public Rigidbody missilePrefab2;
-    public GoldScript other2;
+    public GoldScript2 other2;
     public Text MissileText2;
     public Transform middleCannonTop2;
     public Transform leftCannonTop2;
@@ -95,7 +95,7 @@ public class P2Controller : MonoBehaviour
     {
         if (ammoManager2.middleAmmo > 0)
         {
-            if (Input.GetButtonDown("Fire1"))
+            if (Input.GetButtonDown("p2Fire1"))
             {
 
                 Debug.Log("test");
@@ -106,7 +106,7 @@ public class P2Controller : MonoBehaviour
                 ammoManager2.MiddleMissile();
                 playMissileClicker2.middlePlayerFire = false;
             }
-            else if (Input.GetButtonDown("Fire2"))
+            else if (Input.GetButtonDown("p2Fire2"))
             {
                 Rigidbody scattershotInstance;
                 scattershotInstance = Instantiate(scatterMissile2, midScatterLauncher2.position, midScatterLauncher2.rotation) as Rigidbody;
@@ -119,13 +119,13 @@ public class P2Controller : MonoBehaviour
             {
 
             }
-            if ((Input.GetButtonDown("Fire1")) || Input.GetButtonDown("Fire2") && mouseClicked2 == false)
+            if ((Input.GetButtonDown("p2Fire1")) || Input.GetButtonDown("p2Fire2") && mouseClicked2 == false)
             {
                 Debug.Log("test");
                 mouseClicked2 = true;
                 mousePos2 = Input.mousePosition;
             }
-            if ((Input.GetButtonUp("Fire1")) || Input.GetButtonUp("Fire2") && mouseClicked2 == true)
+            if ((Input.GetButtonUp("p2Fire1")) || Input.GetButtonUp("p2Fire2") && mouseClicked2 == true)
             {
                 Debug.Log("test");
                 mouseClicked2 = false;
@@ -141,7 +141,7 @@ public class P2Controller : MonoBehaviour
     {
         if (ammoManager2.leftAmmo > 0)
         {
-            if (Input.GetButtonDown("Fire1"))
+            if (Input.GetButtonDown("p2Fire1"))
             {
 
 
@@ -152,7 +152,7 @@ public class P2Controller : MonoBehaviour
                 ammoManager2.LeftMissile();
                 playMissileClicker2.leftPlayerFire = false;
             }
-            else if (Input.GetButtonDown("Fire2"))
+            else if (Input.GetButtonDown("p2Fire2"))
             {
                 Rigidbody scattershotInstance;
                 scattershotInstance = Instantiate(scatterMissile2, leftScatterLauncher2.position, leftScatterLauncher2.rotation) as Rigidbody;
@@ -161,13 +161,13 @@ public class P2Controller : MonoBehaviour
                 playMissileClicker2.leftPlayerFire = false;
 
             }
-            if ((Input.GetButtonDown("Fire1")) || Input.GetButtonDown("Fire2") && mouseClicked2 == false)
+            if ((Input.GetButtonDown("p2Fire1")) || Input.GetButtonDown("p2Fire2") && mouseClicked2 == false)
             {
 
                 mouseClicked2 = true;
                 mousePos2 = Input.mousePosition;
             }
-            if ((Input.GetButtonUp("Fire1")) || Input.GetButtonUp("Fire2") && mouseClicked2 == true)
+            if ((Input.GetButtonUp("p2Fire1")) || Input.GetButtonUp("p2Fire2") && mouseClicked2 == true)
             {
                 mouseClicked2 = false;
             }
@@ -180,7 +180,7 @@ public class P2Controller : MonoBehaviour
     {
         if (ammoManager2.rightAmmo > 0)
         {
-            if (Input.GetButtonDown("Fire1"))
+            if (Input.GetButtonDown("p2Fire1"))
             {
 
                 Rigidbody missileInstance;
@@ -190,7 +190,7 @@ public class P2Controller : MonoBehaviour
                 ammoManager2.RightMissile();
                 playMissileClicker2.rightPlayerFire = false;
             }
-            else if (Input.GetButtonDown("Fire2"))
+            else if (Input.GetButtonDown("p2Fire2"))
             {
                 Rigidbody scattershotInstance;
                 scattershotInstance = Instantiate(scatterMissile2, rightScatterLauncher2.position, rightScatterLauncher2.rotation) as Rigidbody;
@@ -198,13 +198,13 @@ public class P2Controller : MonoBehaviour
 
                 playMissileClicker2.rightPlayerFire = false;
             }
-            if ((Input.GetButtonDown("Fire1")) || Input.GetButtonDown("Fire2") && mouseClicked2 == false)
+            if ((Input.GetButtonDown("p2Fire1")) || Input.GetButtonDown("p2Fire2") && mouseClicked2 == false)
             {
 
                 mouseClicked2 = true;
                 mousePos2 = Input.mousePosition;
             }
-            if ((Input.GetButtonUp("Fire1")) || Input.GetButtonUp("Fire2") && mouseClicked2 == true)
+            if ((Input.GetButtonUp("p2Fire1")) || Input.GetButtonUp("p2Fire2") && mouseClicked2 == true)
             {
                 mouseClicked2 = false;
             }
@@ -216,9 +216,9 @@ public class P2Controller : MonoBehaviour
 
     public void BuyAmmo()
     {
-        if (other2.goldAmount > 50f && Input.GetButtonDown("Jump"))
+        if (other2.goldAmount2 > 50f && Input.GetButtonDown("p2Fire3"))
         {
-            other2.goldAmount -= 50f;
+            other2.goldAmount2 -= 50f;
 
 
         }
