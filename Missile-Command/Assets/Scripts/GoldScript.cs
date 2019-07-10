@@ -11,7 +11,8 @@ public class GoldScript : MonoBehaviour
     public bool goldCount2 = false;
     public bool goldCount3 = false;
     public Text goldText;
-   
+
+    public GameObject button1;
     // Start is called before the first frame update
     void Start()
     {
