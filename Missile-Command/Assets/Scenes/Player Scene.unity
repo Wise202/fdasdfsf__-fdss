@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641258, b: 0.5748172, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1107,7 +1107,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 3e-45, y: 0, z: 1.51e-43, w: 0.02734375}
+  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
@@ -1642,12 +1642,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e48c4ab1d9a3e3429df5793d85b3831, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  button1: {fileID: 0}
   goldAmount: 0
   goldCount1: 0
   goldCount2: 0
   goldCount3: 0
   goldText: {fileID: 1539129140}
-  button1: {fileID: 599535949}
 --- !u!1 &985631846
 GameObject:
   m_ObjectHideFlags: 0
@@ -2319,7 +2319,7 @@ MonoBehaviour:
   middleAmmo: 20
   rightAmmo: 20
   totalAmmo: 0
-  gs: {fileID: 0}
+  gs: {fileID: 963194229}
   missileText: {fileID: 938287548}
 --- !u!1 &1384636153
 GameObject:
@@ -4283,21 +4283,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3295381113894955569, guid: ce55a827c26be674ea059a4c708d93e3,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 3295381113894955569, guid: ce55a827c26be674ea059a4c708d93e3,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 3295381113894955569, guid: ce55a827c26be674ea059a4c708d93e3,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 30
-      objectReference: {fileID: 0}
     - target: {fileID: 4784114991951624960, guid: ce55a827c26be674ea059a4c708d93e3,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -4309,21 +4294,6 @@ PrefabInstance:
       value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 4784114991951624960, guid: ce55a827c26be674ea059a4c708d93e3,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 2293729556104016485, guid: ce55a827c26be674ea059a4c708d93e3,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 2293729556104016485, guid: ce55a827c26be674ea059a4c708d93e3,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 2293729556104016485, guid: ce55a827c26be674ea059a4c708d93e3,
         type: 3}
       propertyPath: m_LocalScale.z
       value: 30
@@ -4342,6 +4312,36 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3295381113894955569, guid: ce55a827c26be674ea059a4c708d93e3,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 3295381113894955569, guid: ce55a827c26be674ea059a4c708d93e3,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 3295381113894955569, guid: ce55a827c26be674ea059a4c708d93e3,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 2293729556104016485, guid: ce55a827c26be674ea059a4c708d93e3,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 2293729556104016485, guid: ce55a827c26be674ea059a4c708d93e3,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 2293729556104016485, guid: ce55a827c26be674ea059a4c708d93e3,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 2828143767693653014, guid: ce55a827c26be674ea059a4c708d93e3,
         type: 3}

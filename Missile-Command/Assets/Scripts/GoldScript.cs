@@ -11,8 +11,7 @@ public class GoldScript : MonoBehaviour
     public bool goldCount2 = false;
     public bool goldCount3 = false;
     public Text goldText;
-
-    public GameObject button1;
+   
     // Start is called before the first frame update
     void Start()
     {
@@ -68,7 +67,7 @@ public class GoldScript : MonoBehaviour
             goldAmount -= 300f;
             goldCount3 = true;
             goldCount2 = false;
-            Destroy(button1);
+            
         }
     }
     
